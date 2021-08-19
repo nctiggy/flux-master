@@ -19,3 +19,5 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: node-red-config
+    - kind: Secret
+      name: node-red-secret

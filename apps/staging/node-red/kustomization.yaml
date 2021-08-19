@@ -7,5 +7,3 @@ secretGenerator:
   - name: node-red-secret
     files:
       - values.yaml=values.yaml
-patchesStrategicMerge:
-  - node-red-values.yaml
