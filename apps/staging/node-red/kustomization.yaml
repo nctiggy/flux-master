@@ -3,5 +3,9 @@ kind: Kustomization
 namespace: node-red
 resources:
   - ../../base/node-red
+secretGenerator:
+  - name: node-red-values
+    files:
+      - values.yaml=values.yaml
 patchesStrategicMerge:
   - node-red-values.yaml

@@ -4,15 +4,6 @@ metadata:
   name: node-red
   namespace: node-red
 spec:
-  values:
-    ingress:
-      main:
-        tls:
-        - secretName: node-red-cert
-          hosts:
-          - node-red-dev.web.bluehairfreak.com
-        hosts:
-        - host: node-red-dev.web.bluehairfreak.com
-          paths:
-          - path: /
-            pathType: Prefix
+  valuesFrom:
+    - kind: Secret
+      name: node-red-values
