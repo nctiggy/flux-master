@@ -5,7 +5,7 @@ resources:
   - namespace.yaml
   - release.yaml
 configMapGenerator:
-  - name: node-red-values
+  - name: node-red-config
     files:
       - values.yaml=values.yaml
 configurations:

@@ -6,4 +6,4 @@ metadata:
 spec:
   valuesFrom:
     - kind: Secret
-      name: node-red-values
+      name: node-red-secret

@@ -18,4 +18,4 @@ spec:
       retries: 3
   valuesFrom:
     - kind: ConfigMap
-      name: node-red-values
+      name: node-red-config
