@@ -19,6 +19,5 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: node-red-values
-  valuesFrom:
     - kind: Sercret
       name: node-red-values
