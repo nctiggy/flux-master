@@ -33,6 +33,7 @@ jobs:
           flux create source git flux-system \
           --url=${{ github.event.repository.html_url }} \
           --branch=${GITHUB_REF#refs/heads/}
+          --secret-ref=flux-master-auth
           flux create kustomization flux-system \
           --source=flux-system \
           --path=./clusters/staging
