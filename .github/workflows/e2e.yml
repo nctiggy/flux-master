@@ -9,8 +9,6 @@ on:
 jobs:
   kubernetes:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,6 +22,12 @@ jobs:
           version: "v0.11.1"
       - name: Install Flux in Kubernetes Kind
         run: flux install
+      - name: Add git auth
+        run: |
+          flux create secret git flux-master-auth \
+          --url=${{ github.event.repository.html_url }} \
+          --ssh-key-algorithm=ecdsa \
+          --ssh-ecdsa-curve=p521
       - name: Setup cluster reconciliation
         run: |
           flux create source git flux-system \
