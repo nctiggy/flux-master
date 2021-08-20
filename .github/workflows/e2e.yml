@@ -22,18 +22,13 @@ jobs:
           version: "v0.11.1"
       - name: Install Flux in Kubernetes Kind
         run: flux install
-      - name: Add git auth
-        run: |
-          flux create secret git flux-master-auth \
-          --url=${{ github.event.repository.html_url }} \
-          --username=${{ secrets.GH_USERNAME }} \
-          --password='${{ secrets.GH_PASSWORD }}'
       - name: Setup cluster reconciliation
         run: |
           flux create source git flux-system \
           --url=${{ github.event.repository.html_url }} \
           --branch=${GITHUB_REF#refs/heads/} \
-          --secret-ref=flux-master-auth
+          --username=${{ secrets.GH_USERNAME }} \
+          --password='${{ secrets.GH_PASSWORD }}'
           flux create kustomization flux-system \
           --source=flux-system \
           --path=./clusters/staging
