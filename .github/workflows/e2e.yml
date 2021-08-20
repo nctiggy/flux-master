@@ -25,13 +25,13 @@ jobs:
       - name: Add git auth
         run: |
           flux create secret git flux-master-auth \
-          --url=${{ github.event.repository.html_url }} \
+          --url=ssh://git@github.com/${{ github.repository }} \
           --ssh-key-algorithm=ecdsa \
           --ssh-ecdsa-curve=p521
       - name: Setup cluster reconciliation
         run: |
           flux create source git flux-system \
-          --url=${{ github.event.repository.html_url }} \
+          --url=ssh://git@github.com/${{ github.repository }} \
           --branch=${GITHUB_REF#refs/heads/}
           flux create kustomization flux-system \
           --source=flux-system \
