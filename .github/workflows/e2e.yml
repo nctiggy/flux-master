@@ -27,7 +27,7 @@ jobs:
           flux create secret git flux-master-auth \
           --url=${{ github.event.repository.html_url }} \
           --username=${{ secrets.GH_USERNAME }} \
-          --password=${{ secrets.GH_PASSWORD }}
+          --password='${{ secrets.GH_PASSWORD }}'
       - name: Setup cluster reconciliation
         run: |
           flux create source git flux-system \
