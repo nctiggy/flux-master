@@ -37,8 +37,17 @@ jobs:
       - name: Verify helm reconciliation
         run: |
           kubectl -n node-red wait helmrelease/node-red --for=condition=ready --timeout=5m
+      - name: Debug success
+        if: ${{ success() }}
+        run: |
+          kubectl -n flux-system get all
+          kubectl -n flux-system logs deploy/source-controller
+          kubectl -n flux-system logs deploy/kustomize-controller
+          kubectl -n flux-system logs deploy/helm-controller
+          flux get all --all-namespaces
+          kubectl -n node-red get all
       - name: Debug failure
-        if: failure()
+        if: ${{ failure() }}
         run: |
           kubectl -n flux-system get all
           kubectl -n flux-system logs deploy/source-controller
