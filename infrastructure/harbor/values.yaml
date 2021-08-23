@@ -1,6 +1,6 @@
 expose:
   ingress:
-    host:
+    hosts:
       core: harbor.web.craigcloud.io
       notary: notary.web.craigcloud.io
     annotations:
