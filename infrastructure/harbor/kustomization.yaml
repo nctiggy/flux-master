@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: harbor
 resources:
   - namespace.yaml
+  - release.yaml
 configMapGenerator:
   - name: harbor-config
     files:
