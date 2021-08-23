@@ -1,0 +1,24 @@
+---
+apiVersion: app.terraform.io/v1alpha1
+kind: Workspace
+metadata:
+  name: dev-cluster
+spec:
+  organization: example-org-8965f3
+  secretsMountPath: "/tmp/secrets"
+  module:
+    source: "terraform-google-modules/kubernetes-engine/google"
+    version: "16.1.0"
+  variables:
+    - key: name
+      value: dev-flux
+    - key: location
+      value: us-west1
+    - key: enable_autopilot
+      value: true
+    - key: GOOGLE_APPLICATION_CREDENTIALS
+      sensitive: true
+      environmentVariable: true
+    - key: GOOGLE_PROJECT
+      sensitive: true
+      environmentVariable: true
