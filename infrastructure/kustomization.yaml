@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - sources
 - harbor
+- tf-operator
