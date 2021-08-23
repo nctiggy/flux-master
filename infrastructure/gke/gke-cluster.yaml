@@ -44,6 +44,3 @@ spec:
     - key: project_id
       sensitive: true
       environmentVariable: false
-    - key: GOOGLE_APPLICATION_CREDENTIALS
-      sensitive: true
-      environmentVariable: true
