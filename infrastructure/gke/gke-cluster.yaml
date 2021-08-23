@@ -21,10 +21,6 @@ spec:
       value: us-west1
       sensitive: false
       environmentVariable: false
-    - key: zones
-      value: '["us-west1-a","us-west1-b"]'
-      sensitive: false
-      environmentVariable: false
     - key: ip_range_pods
       value: "us-west1-01-gke-01-pods"
       sensitive: false
