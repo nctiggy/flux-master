@@ -4,3 +4,4 @@ namespace: flux-system
 resources:
 - k8s-at-home.yaml
 - harbor.yaml
+- hashicorp.yaml
