@@ -1,7 +1,7 @@
 expose:
   ingress:
     host:
-      core: core.web.craigcloud.io
+      core: harbor.web.craigcloud.io
       notary: notary.web.craigcloud.io
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
