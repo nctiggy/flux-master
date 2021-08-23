@@ -12,10 +12,16 @@ spec:
   variables:
     - key: name
       value: dev-flux
+      sensitive: false
+      environmentVariable: false
     - key: location
       value: us-west1
+      sensitive: false
+      environmentVariable: false
     - key: enable_autopilot
-      value: true
+      value: "true"
+      sensitive: false
+      environmentVariable: false
     - key: GOOGLE_APPLICATION_CREDENTIALS
       sensitive: true
       environmentVariable: true
