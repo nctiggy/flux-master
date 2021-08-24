@@ -41,5 +41,5 @@ spec:
       sensitive: true
       environmentVariable: false
     - key: GOOGLE_APPLICATION_CREDENTIALS
-      sensitive: true
+      sensitive: false
       environmentVariable: true
