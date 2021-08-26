@@ -1,0 +1,53 @@
+server:
+  image:
+    repository: "hashicorp/vault"
+    tag: "1.8.1"
+    # Overrides the default Image Pull Policy
+    pullPolicy: IfNotPresent
+  updateStrategyType: "OnDelete"
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      ingress.kubernetes.io/force-ssl-redirect: "true"
+      kubernetes.io/ingress.class: contour
+      kubernetes.io/tls-acme: "true"
+    tls:
+    - secretName: vault
+      hosts:
+      - vault.web.craigcloud.io
+    hosts:
+    - host: vault.web.craigcloud.io
+      paths:
+      - /
+  extraEnvironmentVars:
+    GOOGLE_APPLICATION_CREDENTIALS: /vault/userconfig/kms-vault/account.json
+  extraVolumes:
+  - type: secret
+    name: kms-vault
+    path: /vault/userconfig
+  ha:
+    enabled: "true"
+    replicas: 3
+    raft:
+      enabled: true
+      setNodeId: true
+      config: |
+        ui = true
+        listener "tcp" {
+          tls_disable = 1
+          address = "[::]:8200"
+          cluster_address = "[::]:8201"
+        }
+        storage "raft" {
+          path = "/vault/data"
+        }
+        seal "gcpckms" {
+          project     = "home-gitops"
+          region      = "global"
+          key_ring    = "vault-unseal"
+          crypto_key  = "vault-key"
+        }
+        service_registration "kubernetes" {}
+ui:
+  enabled: true
