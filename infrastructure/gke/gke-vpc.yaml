@@ -15,10 +15,15 @@ spec:
       sensitive: false
       environmentVariable: false
     - key: subnets
-      valueFrom:
-        configMapKeyRef:
-          name: gke-config
-          key: subnets
+      value: |
+        [
+          {
+            subnet_name = "vpc-01"
+            subnet_ip = "10.10.10.0/24"
+            subnet_region = "us-west1"
+          }
+        ]
+      hcl: true
       sensitive: false
       environmentVariable: false
     - key: project_id
