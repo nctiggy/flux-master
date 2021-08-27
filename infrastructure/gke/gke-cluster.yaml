@@ -14,7 +14,7 @@ spec:
       moduleOutputName: endpoint
   variables:
     - key: name
-      value: dev-flux
+      value: dev-flux1
       sensitive: false
       environmentVariable: false
     - key: region
