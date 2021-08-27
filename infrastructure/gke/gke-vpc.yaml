@@ -9,8 +9,6 @@ spec:
   module:
     source: "terraform-google-modules/network/google"
     version: "~> 3.0"
-  runTrigger:
-    sourceableName: tf-operator-tf-vpc
   variables:
     - key: network_name
       value: dev-flux-vpc
@@ -39,9 +37,9 @@ spec:
             {
               range_name = "us-west1-01-gke-01-services"
               ip_cidr_range = "192.168.65.0/24"
-            },
+            }
           ]
-      }
+        }
       hcl: true
       sensitive: false
       environmentVariable: false
