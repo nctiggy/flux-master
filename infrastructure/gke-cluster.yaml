@@ -1,0 +1,42 @@
+---
+apiVersion: app.terraform.io/v1alpha1
+kind: Workspace
+metadata:
+  name: dev-cluster
+spec:
+  organization: example-org-8965f3
+  secretsMountPath: "/tmp/secrets"
+  module:
+    source: "terraform-google-modules/kubernetes-engine/google"
+    version: "16.1.0"
+  outputs:
+    - key: endpoint
+      moduleOutputName: endpoint
+  variables:
+    - key: name
+      value: dev-flux
+      sensitive: false
+      environmentVariable: false
+    - key: region
+      value: us-west1
+      sensitive: false
+      environmentVariable: false
+    - key: ip_range_pods
+      value: "us-west1-01-gke-01-pods"
+      sensitive: false
+      environmentVariable: false
+    - key: ip_range_services
+      value: "us-west1-01-gke-01-services"
+      sensitive: false
+      environmentVariable: false
+    - key: network
+      value: "vpc-01"
+      sensitive: false
+      environmentVariable: false
+    - key: subnetwork
+      value: "us-west1-01"
+      sensitive: false
+      environmentVariable: false
+    - key: project_id
+      sensitive: true
+      environmentVariable: false

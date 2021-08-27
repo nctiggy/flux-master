@@ -1,0 +1,38 @@
+---
+apiVersion: app.terraform.io/v1alpha1
+kind: Workspace
+metadata:
+  name: dev-cluster
+spec:
+  organization: example-org-8965f3
+  secretsMountPath: "/tmp/secrets"
+  module:
+    source: "terraform-aws-modules/eks/aws"
+    version: "16.1.0"
+  outputs:
+    - key: endpoint
+      moduleOutputName: endpoint
+  variables:
+    - key: cluster_name
+      value: dev-flux
+      sensitive: false
+      environmentVariable: false
+    - key: cluster_version
+      value: 1.20
+      sensitive: false
+      environmentVariable: false
+    - key: subnets
+      value: '["subnet-abcde012", "subnet-bcde012a", "subnet-fghi345a"]'
+      sensitive: false
+      environmentVariable: false
+    - key: vpc_id
+      value: "vpc-1234556abcdef"
+      sensitive: false
+      environmentVariable: false
+    -
+    - key: AWS_ACCESS_KEY_ID
+      sensitive: true
+      environmentVariable: true
+    - key: AWS_SECRET_ACCESS_KEY
+      sensitive: true
+      environmentVariable: true
