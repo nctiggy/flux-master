@@ -9,8 +9,8 @@ spec:
   module:
     source: "terraform-google-modules/kubernetes-engine/google"
     version: "16.1.0"
-  runTrigger:
-    sourceableName: tf-operator-dev-vpc
+  runTriggers:
+  - sourceableName: tf-operator-dev-vpc
   variables:
     - key: name
       value: dev-flux
@@ -34,6 +34,27 @@ spec:
       environmentVariable: false
     - key: subnetwork
       value: "vpc-01"
+      sensitive: false
+      environmentVariable: false
+    - key: node_pools
+      value: |
+        [
+          {
+            name = "default-node-pool"
+            machine_type = "e2-medium"
+            node_locations = "us-west1-b,us-west1-c"
+            min_count = 1
+            max_count = 4
+            local_ssd_count = 0
+            disk_size_gb = 100
+            disk_type = "pd-standard"
+            image_type = "COS"
+            auto_repair = true
+            auto_upgrade = true
+            initial_node_count = 2
+          },
+        ]
+      hcl: true
       sensitive: false
       environmentVariable: false
     - key: project_id
