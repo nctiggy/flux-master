@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: tf-operator
 resources:
 - gke-vpc.yaml
+- gke-cluster.yaml
