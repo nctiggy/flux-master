@@ -9,6 +9,9 @@ spec:
   module:
     source: "terraform-google-modules/kubernetes-engine/google"
     version: "16.1.0"
+  outputs:
+    - key: endpoint
+      moduleOutputName: endpoint
   variables:
     - key: name
       value: dev-flux
@@ -37,6 +40,3 @@ spec:
     - key: project_id
       sensitive: true
       environmentVariable: false
-    - key: GOOGLE_CREDENTIALS
-      sensitive: true
-      environmentVariable: true
