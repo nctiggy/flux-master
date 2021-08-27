@@ -3,4 +3,7 @@ kind: ConfigMap
 metadata:
   name: gke-config
 data:
-  subnets: '[{subnet_name = "us-west1",subnet_ip = "10.10.10.0/24", subnet_region = "us-west1"}]'
+  subnets:
+    subnet_name: "us-west1"
+    subnet_ip: "10.10.10.0/24"
+    subnet_region: "us-west1"
