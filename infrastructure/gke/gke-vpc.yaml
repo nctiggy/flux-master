@@ -10,28 +10,15 @@ spec:
     source: "terraform-google-modules/network/google"
     version: "~> 3.0"
   variables:
-    - key: name
-      value: dev-flux
+    - key: network_name
+      value: dev-flux-vpc
       sensitive: false
       environmentVariable: false
-    - key: region
-      value: us-west1
-      sensitive: false
-      environmentVariable: false
-    - key: ip_range_pods
-      value: "us-west1-01-gke-01-pods"
-      sensitive: false
-      environmentVariable: false
-    - key: ip_range_services
-      value: "us-west1-01-gke-01-services"
-      sensitive: false
-      environmentVariable: false
-    - key: network
-      value: "vpc-01"
-      sensitive: false
-      environmentVariable: false
-    - key: subnetwork
-      value: "us-west1-01"
+    - key: subnets
+      valueFrom:
+        configMapKeyRef:
+          name: gke-config
+          key: subnets
       sensitive: false
       environmentVariable: false
     - key: project_id
