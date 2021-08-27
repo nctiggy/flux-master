@@ -42,3 +42,8 @@ spec:
     - key: GOOGLE_CREDENTIALS
       sensitive: true
       environmentVariable: true
+    - key: CONFIRM_DESTROY
+      value: "1"
+      sensitive: false
+      environmentVariable: true
+
