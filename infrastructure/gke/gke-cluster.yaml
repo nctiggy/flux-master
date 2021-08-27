@@ -10,7 +10,7 @@ spec:
     source: "terraform-google-modules/kubernetes-engine/google"
     version: "16.1.0"
   runTrigger:
-    sourceableName: tf-operator-tf-vpc
+    sourceableName: tf-operator-dev-vpc
   variables:
     - key: name
       value: dev-flux
