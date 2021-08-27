@@ -15,6 +15,6 @@ spec:
       version: 0.15.0
   install: {}
   interval: 1h0m0s
-valuesFrom:
+  valuesFrom:
   - kind: ConfigMap
     name: vault-config
