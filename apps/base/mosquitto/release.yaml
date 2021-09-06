@@ -16,8 +16,3 @@ spec:
   install:
     remediation:
       retries: 3
-  valuesFrom:
-    - kind: ConfigMap
-      name: mosquitto-config
-    - kind: Secret
-      name: mosquitto-secret
