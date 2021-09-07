@@ -6,6 +6,7 @@ ingress:
       ingress.kubernetes.io/force-ssl-redirect: "true"
       kubernetes.io/ingress.class: contour
       kubernetes.io/tls-acme: "true"
+      projectcontour.io/websocket-routes: "/comms"
 persistence:
   data:
     enabled: true
