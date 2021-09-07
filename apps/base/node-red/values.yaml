@@ -10,3 +10,5 @@ persistence:
   data:
     enabled: true
     retain: true
+    accessMode: ReadWriteOnce
+    size: 64Gi
