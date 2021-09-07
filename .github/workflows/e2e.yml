@@ -37,6 +37,7 @@ jobs:
       - name: Verify helm reconciliation
         run: |
           kubectl -n node-red wait helmrelease/node-red --for=condition=ready --timeout=5m
+          kubectl -n mosquitto wait helmrelease/mosquitto --for=condition=ready --timeout=5m
       - name: Debug success
         if: ${{ success() }}
         run: |
