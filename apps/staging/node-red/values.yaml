@@ -9,3 +9,5 @@ ingress:
       paths:
       - path: /
         pathType: Prefix
+      - path: /comms
+        pathType: Prefix
