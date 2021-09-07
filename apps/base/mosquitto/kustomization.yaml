@@ -4,3 +4,5 @@ namespace: mosquitto
 resources:
   - namespace.yaml
   - release.yaml
+configurations:
+  - kustomizeconfig.yaml

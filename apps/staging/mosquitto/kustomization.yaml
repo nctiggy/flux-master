@@ -3,3 +3,7 @@ kind: Kustomization
 namespace: mosquitto
 resources:
   - ../../base/mosquitto
+secretGenerator:
+  - name: mosquitto-secret
+    files:
+      - values.yaml=values.yaml
