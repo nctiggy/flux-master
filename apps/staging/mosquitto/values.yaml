@@ -1,6 +1,4 @@
 service:
   main:
-    ports:
-      mqtt:
-        type: LoadBalancer
-        loadBalancerIP: 192.168.0.55
+    type: LoadBalancer
+    loadBalancerIP: 192.168.0.55
