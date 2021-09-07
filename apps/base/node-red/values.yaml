@@ -12,3 +12,7 @@ persistence:
     retain: true
     accessMode: ReadWriteOnce
     size: 64Gi
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
