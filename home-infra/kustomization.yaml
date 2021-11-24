@@ -4,3 +4,4 @@ resources:
 - external-snapshotter
 - contour
 - sources
+- metallb
