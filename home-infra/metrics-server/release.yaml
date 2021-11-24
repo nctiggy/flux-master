@@ -20,4 +20,7 @@ spec:
   values:
     defaultArgs:
       - --kubelet-insecure-tls
-      - --cert-dir=/tmp
+      - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+      - --cert-dir=/tmp/ca
+      - --kubelet-use-node-status-port
+      - --metric-resolution=15s
