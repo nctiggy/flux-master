@@ -16,7 +16,7 @@ spec:
   interval: 1h0m0s
   dependsOn:
   - name: metallb
-    namespace: metallb
+    namespace: metallb-system
   install:
     remediation:
       retries: 3
