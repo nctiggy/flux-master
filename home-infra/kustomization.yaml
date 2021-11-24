@@ -6,3 +6,4 @@ resources:
 - sources
 - metallb
 - cert-manager
+- metrics-server
