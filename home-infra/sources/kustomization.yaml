@@ -4,3 +4,4 @@ resources:
 - bitnami.yaml
 - metallb.yaml
 - jetstack.yaml
+- metrics-server.yaml
