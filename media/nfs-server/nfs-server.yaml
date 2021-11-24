@@ -1,0 +1,100 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-server
+  namespace: media
+  labels:
+    app: nfs-server
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: nfs-server
+  template:
+    metadata:
+      labels:
+        app: nfs-server
+    spec:
+      containers:
+      - name: nfs-server
+        image: itsthenetwork/nfs-server-alpine:12
+        ports:
+        - containerPort: 2049
+          protocol: TCP
+        livenessProbe:
+          tcpSocket:
+            port: 2049
+          initialDelaySeconds: 30
+          failureThreshold: 5
+          timeoutSeconds: 10
+        env:
+        - name: SHARED_DIRECTORY
+          value: "/media"
+        volumeMounts:
+        - mountPath: /media
+          name: data
+        securityContext:
+          capabilities:
+            add: ["SYS_ADMIN", "SETPCAP"]
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: nfs-data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-data
+spec:
+  capacity:
+    storage: 16Ti
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: vxflexos-xfs
+  csi:
+    driver: csi-vxflexos.dellemc.com
+    fsType: xfs
+    volumeAttributes:
+      FsType: xfs
+      Name: nfs-data
+      StoragePoolID: "bf7590cf00000000"
+      StoragePoolName: sp1
+    volumeHandle: d2dc437900000000
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-data
+  namespace: media
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 16Ti
+  storageClassName: vxflexos-xfs
+  volumeMode: Filesystem
+  volumeName: nfs-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfs-server-frontend
+  namespace: media
+  annotations:
+    metallb.universe.tf/address-pool: frontend
+spec:
+  selector:
+    app: nfs-server
+  ports:
+    - protocol: TCP
+      port: 2049
+      targetPort: 2049
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  loadBalancerIP: "192.168.0.59"
