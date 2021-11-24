@@ -1,3 +1,0 @@
-[submodule "home-infra/csi-powerflex"]
-	path = home-infra/csi-powerflex
-	url = git@github.com:dell/csi-powerflex.git
