@@ -15,7 +15,7 @@ spec:
       version: "7.0.3"
   interval: 1h0m0s
   dependsOn:
-    name: metallb
+  - name: metallb
     namespace: metallb
   install:
     remediation:
