@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: bitwarden
+spec:
+  capacity:
+    storage: 32Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: vxflexos
+  csi:
+    driver: csi-vxflexos.dellemc.com
+    fsType: ext4
+    volumeAttributes:
+      FsType: ext4
+      Name: bitwarden
+      StoragePoolID: "bf7590cf00000000"
+      StoragePoolName: sp1
+    volumeHandle: d2dcb8cf00000014
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bitwarden
+  namespace: shared-services
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 32Gi
+  storageClassName: vxflexos
+  volumeMode: Filesystem
+  volumeName: bitwarden
