@@ -57,7 +57,7 @@ spec:
         type: pvc
         accessMode: ReadWriteOnce
         size: 16Gi
-        skipuninstall: true
+        retain: true
     affinity:
       podAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:

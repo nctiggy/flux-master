@@ -1,18 +1,18 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: radarr
-  namespace: media
+  name: bitwarden
+  namespace: shared-services
 spec:
-  releaseName: radarr
+  releaseName: bitwarden
   chart:
     spec:
-      chart: radarr
+      chart: bitwarden
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home
         namespace: flux-system
-      version: "15.1.0"
+      version: "2.1.11"
   interval: 30m
   install:
     remediation:
@@ -27,25 +27,26 @@ spec:
           kubernetes.io/ingress.class: contour
           kubernetes.io/tls-acme: "true"
         tls:
-        - secretName: radarr
+        - secretName: bitwarden
           hosts:
-          - movies.web.bluehairfreak.com
+          - passwords.web.bluehairfreak.com
         hosts:
-        - host: movies.web.bluehairfreak.com
+        - host: passwords.web.bluehairfreak.com
           paths:
           - path: /
             pathType: Prefix
     persistence:
-      config:
-        enabled: true
-        type: pvc
-        accessMode: ReadWriteOnce
-        retain: true
-        size: 64Gi
-      media:
-        enabled: true
-        existingClaim: nfs-share
-    podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
+      enabled: true
+      existingClaim: bitwarden
+    bitwardenrs:
+      signupsAllowed: true
+      admin:
+        existingSecret:
+          enabled: true
+          name: "bitwarden-admin"
+          tokenKey: "password"
+    autoscaling:
+      enabled: true
+      minReplicas: 1
+      maxReplicas: 10
+      targetCPUUtilizationPercentage: 80
