@@ -1,0 +1,49 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nzbget
+  namespace: media
+spec:
+  releaseName: nzbget
+  chart:
+    spec:
+      chart: nzbget
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      version: "12.1.0"
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  values:
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          ingress.kubernetes.io/force-ssl-redirect: "true"
+          kubernetes.io/ingress.class: contour
+          kubernetes.io/tls-acme: "true"
+        tls:
+        - secretName: nzbget
+          hosts:
+          - downloads.web.bluehairfreak.com
+        hosts:
+        - host: downloads.web.bluehairfreak.com
+          paths:
+          - path: /
+            pathType: Prefix
+    persistence:
+      config:
+        enabled: true
+        retain: true
+        size: 64Gi
+      media:
+        enabled: true
+        existingClaim: nfs-share
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
