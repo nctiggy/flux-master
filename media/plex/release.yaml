@@ -18,19 +18,30 @@ spec:
     remediation:
       retries: 3
   values:
-    claimToken: claim-DmD6qfd_Wi4TcMRQ8xP_
-    advertiseIp: "http://192.168.0.52:32400"
-    timezone: "Americas/Los_Angeles"
-    allowedNetworks:
-    - 127.0.0.1
-    - 192.168.0.0/24
-    serviceTCP:
-      type: LoadBalancer
-      loadBalancerIP: 192.168.0.52
-      externalTrafficPolicy: Local
-    serviceUDP:
-      type: LoadBalancer
-      externalTrafficPolicy: Local
+    env:
+      TZ: "Americas/Los_Angeles"
+      ADVERTISE_IP: "http://192.168.0.52:32400"
+      ALLOWED_NETWORKS:
+      - 127.0.0.1
+      - 192.168.0.0/24
+      PLEX_CLAIM: claim-DmD6qfd_Wi4TcMRQ8xP_
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          ingress.kubernetes.io/force-ssl-redirect: "true"
+          kubernetes.io/ingress.class: contour
+          kubernetes.io/tls-acme: "true"
+        tls:
+        - secretName: plex
+          hosts:
+          - plex.web.craigcloud.io
+        hosts:
+        - host: plex.web.craigcloud.io
+          paths:
+          - path: /
+            pathType: Prefix
     persistence:
       data:
         enabled: true
