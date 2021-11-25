@@ -39,7 +39,9 @@ spec:
       config:
         enabled: true
         type: pvc
-        existingClaim: "plex-config"
+        accessMode: ReadWriteOnce
+        size: 16Gi
+        skipuninstall: true
     affinity:
       podAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
