@@ -1,0 +1,54 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: plex
+  namespace: media
+spec:
+  releaseName: plex
+  chart:
+    spec:
+      chart: plex
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      version: "6.1.0"
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  values:
+    claimToken: claim-DmD6qfd_Wi4TcMRQ8xP_
+    advertiseIp: "http://192.168.0.52:32400"
+    timezone: "Americas/Los_Angeles"
+    allowedNetworks:
+    - 127.0.0.1
+    - 192.168.0.0/24
+    serviceTCP:
+      type: LoadBalancer
+      loadBalancerIP: 192.168.0.52
+      externalTrafficPolicy: Local
+    serviceUDP:
+      type: LoadBalancer
+      externalTrafficPolicy: Local
+    persistence:
+      transcode:
+        enabled: true
+      data:
+        enabled: true
+        claimName: "nfs-share"
+      config:
+        enabled: true
+        claimName: "plex-config"
+    affinity:
+      podAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - nfs-server
+          topologyKey: "kubernetes.io/hostname"
+  valueFileSecrets:
+  - name: "plex-helm-values"
