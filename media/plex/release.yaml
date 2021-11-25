@@ -36,14 +36,12 @@ spec:
         enabled: true
       data:
         enabled: true
-        claimName: "nfs-share"
-        accessMode: RWX
-        size: 16Ti
+        type: pvc
+        existingClaim: "nfs-share"
       config:
         enabled: true
-        claimName: "plex-config"
-        accessMode: RWO
-        size: 16Gi
+        type: pvc
+        existingClaim: "plex-config"
     affinity:
       podAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
