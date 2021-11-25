@@ -38,9 +38,12 @@ spec:
         enabled: true
         claimName: "nfs-share"
         accessMode: RWX
+        size: 16Ti
       config:
         enabled: true
         claimName: "plex-config"
+        accessMode: RWO
+        size: 16Gi
     affinity:
       podAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
