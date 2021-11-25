@@ -37,6 +37,7 @@ spec:
       data:
         enabled: true
         claimName: "nfs-share"
+        accessMode: RWX
       config:
         enabled: true
         claimName: "plex-config"
