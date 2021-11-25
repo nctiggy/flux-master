@@ -32,8 +32,6 @@ spec:
       type: LoadBalancer
       externalTrafficPolicy: Local
     persistence:
-      transcode:
-        enabled: true
       data:
         enabled: true
         type: pvc
