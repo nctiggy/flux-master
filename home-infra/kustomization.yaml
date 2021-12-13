@@ -7,3 +7,4 @@ resources:
 - metallb
 - cert-manager
 - metrics-server
+- sealed-secrets
