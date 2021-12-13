@@ -29,15 +29,16 @@ spec:
         tls:
         - secretName: bitwarden
           hosts:
-          - passwords.web.bluehairfreak.com
+          - passwords.web.craigcloud.io
         hosts:
-        - host: passwords.web.bluehairfreak.com
+        - host: passwords.web.craigcloud.io
           paths:
           - path: /
             pathType: Prefix
     persistence:
-      enabled: true
-      existingClaim: bitwarden
+      config:
+        enabled: true
+        existingClaim: bitwarden
     bitwardenrs:
       signupsAllowed: true
       admin:
