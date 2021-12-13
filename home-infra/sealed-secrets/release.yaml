@@ -20,3 +20,16 @@ spec:
   values:
     dashboards:
       create: true
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        ingress.kubernetes.io/force-ssl-redirect: "true"
+        kubernetes.io/ingress.class: contour
+        kubernetes.io/tls-acme: "true"
+      tls:
+      - secretName: sealed-secrets
+        hosts:
+        - secrets.web.bluehairfreak.com
+      hosts:
+      - secrets.web.bluehairfreak.com
