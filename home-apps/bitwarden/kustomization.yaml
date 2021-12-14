@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
 - release.yaml
 - namespace.yaml
-- valutwarden-values.yaml
+- vaultwarden-values.yaml
 configurations:
 - kustomizeconfig.yaml
