@@ -51,4 +51,4 @@ spec:
         enabled: true
   valuesFrom:
   - kind: Secret
-    name: vaultwarden-secret
+    name: vaultwarden-values
