@@ -1,18 +1,18 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: bitwarden
+  name: vaultwarden
   namespace: shared-services
 spec:
-  releaseName: bitwarden
+  releaseName: vaultwarden
   chart:
     spec:
-      chart: bitwarden
+      chart: vaultwarden
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home
         namespace: flux-system
-      version: "2.1.11"
+      version: "3.3.1"
   interval: 30m
   install:
     remediation:
@@ -26,28 +26,18 @@ spec:
           ingress.kubernetes.io/force-ssl-redirect: "true"
           kubernetes.io/ingress.class: contour
           kubernetes.io/tls-acme: "true"
+          projectcontour.io/websocket-routes: "/notifications/hub"
         tls:
-        - secretName: bitwarden
+        - secretName: vaultwarden
           hosts:
           - passwords.web.craigcloud.io
         hosts:
         - host: passwords.web.craigcloud.io
-          paths:
-          - path: /
-            pathType: Prefix
     persistence:
       config:
         enabled: true
-        existingClaim: bitwarden
-    bitwardenrs:
-      signupsAllowed: true
-      admin:
-        existingSecret:
-          enabled: true
-          name: "bitwarden-admin"
-          tokenKey: "password"
-    autoscaling:
-      enabled: true
-      minReplicas: 1
-      maxReplicas: 10
-      targetCPUUtilizationPercentage: 80
+  valuesFrom:
+  - kind: Secret
+    name: vaultwarden-secret
+    valuesKey: values.yaml
+
