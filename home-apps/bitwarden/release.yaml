@@ -49,6 +49,7 @@ spec:
     persistence:
       config:
         enabled: true
+        existingClaim: bitwarden
   valuesFrom:
   - kind: Secret
     name: vaultwarden-values
