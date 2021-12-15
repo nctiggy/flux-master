@@ -8,3 +8,4 @@ resources:
 - cert-manager
 - metrics-server
 - sealed-secrets
+- prometheus
