@@ -20,7 +20,11 @@ spec:
   values:
     prometheusOperator:
       admissionWebhooks:
-        certManager: enabled
+        certManager:
+          enabled: true
+          issuerRef:
+            name: "letsencrypt-prod"
+            kind: "ClusterIssuer"
     prometheus:
       prometheusSpec:
         secrets: ['etcd-client-cert']
