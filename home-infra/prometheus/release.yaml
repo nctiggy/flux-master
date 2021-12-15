@@ -18,6 +18,20 @@ spec:
     remediation:
       retries: 3
   values:
+    prometheusOperator:
+      admissionWebhooks:
+        certManager: enabled
+    prometheus:
+      prometheusSpec:
+        secrets: ['etcd-client-cert']
+    kubeEtcd:
+      serviceMonitor:
+       scheme: https
+       insecureSkipVerify: false
+       serverName: localhost
+       caFile: /etc/prometheus/secrets/etcd-client-cert/ca.crt
+       certFile: /etc/prometheus/secrets/etcd-client-cert/healthcheck-client.crt
+       keyFile: /etc/prometheus/secrets/etcd-client-cert/healthcheck-client.key
     grafana:
       ingress:
         enabled: true
