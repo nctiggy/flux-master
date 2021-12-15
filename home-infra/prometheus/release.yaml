@@ -19,23 +19,6 @@ spec:
       retries: 3
   values:
     alertmanager:
-      externalUrl: alertmanager.web.bluehairfreak.com
-      ingress:
-        enabled: true
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-prod"
-          ingress.kubernetes.io/force-ssl-redirect: "true"
-          kubernetes.io/ingress.class: contour
-          kubernetes.io/tls-acme: "true"
-        tls:
-        - secretName: alertmanager
-          hosts:
-          - alertmanager.web.bluehairfreak.com
-        hosts:
-        - alertmanager.web.bluehairfreak.com
-        paths:
-        - /
-          pathType: Prefix
     grafana:
       ingress:
         enabled: true
