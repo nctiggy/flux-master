@@ -34,13 +34,6 @@ spec:
         - prometheus.web.bluehairfreak.com
         path: /
       prometheusSpec:
-        podMonitorSelector:
-          matchLabels:
-            app.kubernetes.io/part-of: flux
-        serviceMonitorSelector:
-          matchLabels:
-            helm.toolkit.fluxcd.io/namespace: media
-            app: kube-prometheus-stack-alertmanager
         secrets: ['etcd-client-cert']
     kubeEtcd:
       serviceMonitor:
