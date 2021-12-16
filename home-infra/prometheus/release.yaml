@@ -20,6 +20,9 @@ spec:
   values:
     prometheus:
       prometheusSpec:
+        podMonitorSelector:
+          matchLabels:
+            app.kubernetes.io/part-of: flux
         secrets: ['etcd-client-cert']
     kubeEtcd:
       serviceMonitor:
@@ -30,6 +33,9 @@ spec:
        certFile: /etc/prometheus/secrets/etcd-client-cert/healthcheck-client.crt
        keyFile: /etc/prometheus/secrets/etcd-client-cert/healthcheck-client.key
     grafana:
+      sidecar:
+        dashboards:
+          searchNamespace: ALL
       ingress:
         enabled: true
         annotations:
