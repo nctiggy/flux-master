@@ -54,6 +54,7 @@ spec:
         - name: config
           mountPath: /data/config
         ingress:
+          enabled: true
           annotations:
             cert-manager.io/cluster-issuer: "letsencrypt-prod"
             ingress.kubernetes.io/force-ssl-redirect: "true"
