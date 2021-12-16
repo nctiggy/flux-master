@@ -50,17 +50,21 @@ spec:
     addons:
       codeserver:
         enabled: true
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-prod"
-          ingress.kubernetes.io/force-ssl-redirect: "true"
-          kubernetes.io/ingress.class: contour
-          kubernetes.io/tls-acme: "true"
-        tls:
-        - secretName: sonarr-code
+        volumeMounts:
+        - name: config
+          mountPath: /data/config
+        ingress:
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt-prod"
+            ingress.kubernetes.io/force-ssl-redirect: "true"
+            kubernetes.io/ingress.class: contour
+            kubernetes.io/tls-acme: "true"
+          tls:
+          - secretName: sonarr-code
+            hosts:
+            - tv-code.web.bluehairfreak.com
           hosts:
-          - tv-code.web.bluehairfreak.com
-        hosts:
-        - host: tv-code.web.bluehairfreak.com
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: tv-code.web.bluehairfreak.com
+            paths:
+            - path: /
+              pathType: Prefix
