@@ -52,5 +52,5 @@ spec:
       prometheusRule:
         enabled: true
       exporter:
-        env:
-          url: "http://localhost:8989"
+        image:
+          tag: v0.6.2
