@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 1m
   url: https://github.com/fluxcd/flux2
-  reference:
+  ref:
     branch: main
