@@ -47,6 +47,13 @@ spec:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
+    metrics:
+      enabled: true
+      prometheusRule:
+        enabled: true
+      exporter:
+        env:
+          url: "http://localhost:8989"
     addons:
       codeserver:
         enabled: true
@@ -70,3 +77,4 @@ spec:
             paths:
             - path: /
               pathType: Prefix
+
