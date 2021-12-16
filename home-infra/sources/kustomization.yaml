@@ -5,6 +5,7 @@ resources:
 - bitnami-labs.yaml
 - metallb.yaml
 - jetstack.yaml
+- flux.yaml
 - metrics-server.yaml
 - k8s-at-home.yaml
 - prometheus-community.yaml
