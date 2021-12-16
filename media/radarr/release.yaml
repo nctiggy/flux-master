@@ -49,3 +49,10 @@ spec:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
+    metrics:
+      enabled: true
+      prometheusRule:
+        enabled: true
+      exporter:
+        image:
+          tag: v0.6.2
