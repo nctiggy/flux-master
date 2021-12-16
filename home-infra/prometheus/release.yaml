@@ -34,13 +34,12 @@ spec:
         - prometheus.web.bluehairfreak.com
         path: /
       prometheusSpec:
-        podMonitorSelectorNilUsesHelmValues: false
-        serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelector:
           matchLabels:
             app.kubernetes.io/part-of: flux
         serviceMonitorSelector:
           matchLabels:
+            helm.toolkit.fluxcd.io/namespace: monitoring
             helm.toolkit.fluxcd.io/namespace: media
         secrets: ['etcd-client-cert']
     kubeEtcd:
