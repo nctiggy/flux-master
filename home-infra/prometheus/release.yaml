@@ -38,6 +38,9 @@ spec:
         - prometheus.web.bluehairfreak.com
         path: /
       prometheusSpec:
+        podMonitorSelector:
+          matchLabels:
+            app.kubernetes.io/part-of: flux
         secrets: ['etcd-client-cert']
     kubeEtcd:
       serviceMonitor:
