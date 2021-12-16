@@ -39,8 +39,8 @@ spec:
             app.kubernetes.io/part-of: flux
         serviceMonitorSelector:
           matchLabels:
-            helm.toolkit.fluxcd.io/namespace: monitoring
             helm.toolkit.fluxcd.io/namespace: media
+            app: kube-prometheus-stack-alertmanager
         secrets: ['etcd-client-cert']
     kubeEtcd:
       serviceMonitor:
