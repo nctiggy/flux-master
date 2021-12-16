@@ -37,6 +37,9 @@ spec:
         podMonitorSelector:
           matchLabels:
             app.kubernetes.io/part-of: flux
+        serviceMonitorSelector:
+          matchLabels:
+            helm.toolkit.fluxcd.io/namespace=media
         secrets: ['etcd-client-cert']
     kubeEtcd:
       serviceMonitor:
