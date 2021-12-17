@@ -34,6 +34,12 @@ spec:
         - prometheus.web.bluehairfreak.com
         path: /
       prometheusSpec:
+        serviceMonitorNamespaceSelector:
+          matchLabels:
+            prometheus: scrape
+        serviceMonitorSelector:
+          matchLabels:
+            helm.toolkit.fluxcd.io/namespace: media
         podMonitorSelector:
           matchLabels:
             app.kubernetes.io/part-of: flux
