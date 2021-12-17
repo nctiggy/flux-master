@@ -20,3 +20,12 @@ spec:
   install:
     remediation:
       retries: 3
+  values:
+    metrics:
+      serviceMonitor:
+        namespace: "contour"
+        enabled: true
+        jobLabel:
+          prometheus: scrape
+        interval: "10s"
+        scrapeTimeout: "1m"
