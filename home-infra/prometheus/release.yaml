@@ -18,6 +18,8 @@ spec:
     remediation:
       retries: 3
   values:
+    commonLabels:
+      prometheus: scrape
     kubeScheduler:
       service:
         port: 10259
