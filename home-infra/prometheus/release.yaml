@@ -57,6 +57,7 @@ spec:
         serviceMonitorSelector:
           matchLabels:
             helm.toolkit.fluxcd.io/namespace: media
+            prometheus: scrape
         podMonitorSelector:
           matchLabels:
             app.kubernetes.io/part-of: flux
