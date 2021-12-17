@@ -44,17 +44,6 @@ spec:
           matchLabels:
             app.kubernetes.io/part-of: flux
         secrets: ['etcd-client-cert']
-      additionalServiceMonitors:
-        - name: media-monitor
-          selector:
-            matchLabels:
-              helm.toolkit.fluxcd.io/namespace: media
-          namespaceSelector:
-            matchNames:
-              - media
-          endpoints:
-            - port: metrics
-              interval: 10s
     kubeEtcd:
       serviceMonitor:
        scheme: https
