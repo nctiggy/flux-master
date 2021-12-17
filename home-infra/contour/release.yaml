@@ -21,11 +21,11 @@ spec:
     remediation:
       retries: 3
   values:
+    commonLabels:
+      prometheus: scrape
     metrics:
       serviceMonitor:
         namespace: "contour"
         enabled: true
-        jobLabel:
-          prometheus: scrape
         interval: "10s"
         scrapeTimeout: "1m"
