@@ -51,6 +51,9 @@ spec:
       enabled: true
       prometheusRule:
         enabled: true
+      serviceMonitor:
+        labels:
+          prometheus: scrape
       exporter:
         image:
           tag: v0.6.2
