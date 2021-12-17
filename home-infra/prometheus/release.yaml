@@ -56,7 +56,6 @@ spec:
             prometheus: scrape
         serviceMonitorSelector:
           matchLabels:
-            helm.toolkit.fluxcd.io/namespace: media
             prometheus: scrape
         podMonitorSelector:
           matchLabels:
