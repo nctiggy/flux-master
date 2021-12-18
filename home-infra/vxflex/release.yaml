@@ -1,10 +1,10 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: csi-powerflex
+  name: csi-vxflexos
   namespace: vxflexos
 spec:
-  releaseName: csi-powerflex
+  releaseName: csi-vxflexos
   chart:
     spec:
       chart: csi-vxflexos
