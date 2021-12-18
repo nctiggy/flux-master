@@ -7,7 +7,7 @@ spec:
   releaseName: csi-powerflex
   chart:
     spec:
-      chart: csi-powerflex
+      chart: csi-vxflexos
       sourceRef:
         kind: HelmRepository
         name: csi-powerflex
