@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: csi-powerflex
+  namespace: vxflexos
+spec:
+  releaseName: csi-powerflex
+  chart:
+    spec:
+      chart: csi-powerflex
+      sourceRef:
+        kind: HelmRepository
+        name: csi-powerflex
+        namespace: flux-system
+      version: "2.1.0"
+  interval: 30m
+  install:
+    remediation:
+      retries: 3

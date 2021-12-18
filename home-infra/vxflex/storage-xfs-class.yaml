@@ -1,0 +1,17 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: vxflexos-xfs
+provisioner: csi-vxflexos.dellemc.com
+reclaimPolicy: Retain
+allowVolumeExpansion: true
+parameters:
+  storagepool: sp1
+  systemID: 5ce188351418130f
+  FsType: xfs
+volumeBindingMode: WaitForFirstConsumer
+allowedTopologies:
+- matchLabelExpressions:
+  - key: csi-vxflexos.dellemc.com/5ce188351418130f
+    values:
+    - csi-vxflexos.dellemc.com

@@ -9,3 +9,4 @@ resources:
 - metrics-server.yaml
 - k8s-at-home.yaml
 - prometheus-community.yaml
+- csi-powerflex.yaml
