@@ -26,6 +26,6 @@ spec:
     metrics:
       serviceMonitor:
         namespace: "contour"
-        enabled: true
+        enabled: false
         interval: "10s"
         scrapeTimeout: "1m"
