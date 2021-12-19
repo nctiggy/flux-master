@@ -38,10 +38,7 @@ spec:
     persistence:
       config:
         enabled: true
-        type: pvc
-        accessMode: ReadWriteOnce
-        retain: true
-        size: 64Gi
+        existingClaim: radarr
       media:
         enabled: true
         existingClaim: nfs-share

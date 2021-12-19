@@ -38,8 +38,7 @@ spec:
     persistence:
       config:
         enabled: true
-        retain: true
-        size: 64Gi
+        existingClaim: nzbget
       media:
         enabled: true
         existingClaim: nfs-share

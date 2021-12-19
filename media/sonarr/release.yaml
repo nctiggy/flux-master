@@ -38,8 +38,7 @@ spec:
     persistence:
       config:
         enabled: true
-        skipuninstall: true
-        size: 64Gi
+        existingClaim: sonarr
       media:
         enabled: true
         existingClaim: nfs-share
