@@ -55,9 +55,7 @@ spec:
       config:
         enabled: true
         type: pvc
-        accessMode: ReadWriteOnce
-        size: 16Gi
-        retain: true
+        existingClaim: "plex"
     affinity:
       podAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
