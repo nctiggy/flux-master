@@ -19,5 +19,5 @@ spec:
       retries: 3
   valuesFrom:
   - name: xbackbone-values
-    kind: secret
+    kind: Secret
     optional: true
