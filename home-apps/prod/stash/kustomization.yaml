@@ -3,5 +3,7 @@ kind: Kustomization
 namespace: stash
 resources:
 - ../../base/stash
+- nfs-volume.yaml
+- nfs-claim.yaml
 - volume.yaml
 - stash-values.yaml
