@@ -17,6 +17,9 @@ spec:
   install:
     remediation:
       retries: 3
+  dependsOn:
+  - name: sealed-secrets-controller
+    namespace: kube-system
   values:
     ingress:
       main:

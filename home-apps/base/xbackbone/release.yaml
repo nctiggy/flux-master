@@ -1,22 +1,23 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: csi-vxflexos
-  namespace: vxflexos
+  name: xbackbone
+  namespace: xbackbone
 spec:
-  releaseName: csi-vxflexos
+  releaseName: xbackbone
   chart:
     spec:
-      chart: csi-vxflexos
+      chart: xbackbone
       sourceRef:
         kind: HelmRepository
-        name: csi-powerflex
+        name: k8s-at-home
         namespace: flux-system
-      version: "2.1.0"
+      version: "^5.1.0"
   interval: 30m
   install:
     remediation:
       retries: 3
-  dependsOn:
-  - name: sealed-secrets-controller
-    namespace: kube-system
+  valuesFrom:
+  - name: xbackbone-values
+    kind: secret
+    optional: true
