@@ -1,0 +1,13 @@
+ingress:
+  main:
+    tls:
+    - secretName: node-red-cert
+      hosts:
+      - node-red.web.bluehairfreak.com
+    hosts:
+    - host: node-red.web.bluehairfreak.com
+      paths:
+      - path: /
+        pathType: Prefix
+      - path: /comms
+        pathType: Prefix

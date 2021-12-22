@@ -1,0 +1,17 @@
+ingress:
+  main:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      ingress.kubernetes.io/force-ssl-redirect: "true"
+      kubernetes.io/ingress.class: contour
+      kubernetes.io/tls-acme: "true"
+      projectcontour.io/websocket-routes: "/comms"
+persistence:
+  data:
+    enabled: true
+    existingClaim: node-red
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
