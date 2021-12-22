@@ -3,3 +3,6 @@ kind: Kustomization
 resources:
 - bitwarden
 - vxflex
+dependsOn:
+- name: home-infra
+  namespace: flux-system
