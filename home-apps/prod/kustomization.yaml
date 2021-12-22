@@ -4,3 +4,4 @@ resources:
 - xbackbone
 - stash
 - node-red
+- mosquitto
