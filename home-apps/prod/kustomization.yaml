@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - xbackbone
 - stash
+- node-red
