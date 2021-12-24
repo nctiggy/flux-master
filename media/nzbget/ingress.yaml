@@ -1,0 +1,36 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: nzbget
+  namespace: media
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/ingress.class: contour
+    kubernetes.io/tls-acme: "true"
+spec:
+  virtualhost:
+    fqdn: downloads.web.craigcloud.io
+    tls:
+      secretName: httpbinproxy
+    corsPolicy:
+      #allowCredentials: true
+        allowOrigin:
+          - "*" # allows any origin
+        allowMethods:
+          - GET
+          - POST
+          - OPTIONS
+        allowHeaders:
+          #   - authorization
+          - cache-control
+        exposeHeaders:
+          - Content-Length
+          - Content-Range
+        maxAge: "10m" # preflight requests can be cached for 10 minutes.
+  routes:
+    - conditions:
+      - prefix: /
+      services:
+        - name: nzbget
+          port: 6789

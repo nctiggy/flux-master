@@ -7,3 +7,6 @@ resources:
 - radarr
 - sonarr
 - nzbget
+dependsOn:
+- name: home-infra
+  namespace: flux-system

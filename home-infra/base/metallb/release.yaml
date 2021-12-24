@@ -17,11 +17,13 @@ spec:
   install:
     remediation:
       retries: 3
-  values:
-    configInline:
-      address-pools:
-      - name: frontend
-        protocol: layer2
-        addresses:
-        - 192.168.0.50-192.168.0.59
-
+  dependsOn:
+  - name: sealed-secrets-controller
+    namespace: kube-system
+  valuesFrom:
+  - name: metallb-values
+    kind: Secret
+    optional: true
+  - name: metallb-config
+    kind: ConfigMap
+    optional: true
