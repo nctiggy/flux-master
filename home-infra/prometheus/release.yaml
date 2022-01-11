@@ -36,6 +36,11 @@ spec:
         https: true
         insecureSkipVerify: true
     prometheus:
+      extraSecret:
+        data:
+          auth: |
+            admin:$2a$12$0WFYY9FhJH0KG2yhPb.f2.A4drxMhogHlSvER5OYFebk6AWGucXrW
+            cnvrg:$2a$12$0WFYY9FhJH0KG2yhPb.f2.A4drxMhogHlSvER5OYFebk6AWGucXrW
       ingress:
         enabled: true
         annotations:
