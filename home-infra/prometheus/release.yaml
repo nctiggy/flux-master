@@ -62,6 +62,7 @@ spec:
         serviceMonitorSelector:
           matchLabels:
             prometheus: scrape
+            exporter: cnvrg-job
         podMonitorSelector:
           matchLabels:
             app.kubernetes.io/part-of: flux
