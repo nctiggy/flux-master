@@ -56,16 +56,18 @@ spec:
         - prometheus.web.bluehairfreak.com
         path: /
       prometheusSpec:
-        serviceMonitorNamespaceSelector:
-          matchLabels:
-            prometheus: scrape
-        serviceMonitorSelector:
-          matchLabels:
-            prometheus: scrape
-            exporter: cnvrg-job
-        podMonitorSelector:
-          matchLabels:
-            app.kubernetes.io/part-of: flux
+        podMonitorSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
+          #serviceMonitorNamespaceSelector:
+          #matchLabels:
+          #  prometheus: scrape
+          #serviceMonitorSelector:
+          #matchLabels:
+          #  prometheus: scrape
+          #  exporter: cnvrg-job
+          #podMonitorSelector:
+          #matchLabels:
+          #  app.kubernetes.io/part-of: flux
         secrets: ['etcd-client-cert']
     kubeEtcd:
       serviceMonitor:
