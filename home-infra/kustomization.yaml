@@ -9,3 +9,4 @@ resources:
 - metrics-server
 - sealed-secrets
 - istio
+- istio-gateway
