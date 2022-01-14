@@ -10,3 +10,4 @@ resources:
 - k8s-at-home.yaml
 - prometheus-community.yaml
 - csi-powerflex.yaml
+- istio.yaml
