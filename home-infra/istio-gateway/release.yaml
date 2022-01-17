@@ -20,3 +20,7 @@ spec:
   install:
     remediation:
       retries: 3
+  values:
+    gateways:
+      istio-ingressgateway:
+        runAsRoot: true
