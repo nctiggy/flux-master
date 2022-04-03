@@ -1,0 +1,74 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: home-assistant
+spec:
+  capacity:
+    storage: 256Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: vxflexos
+  csi:
+    driver: csi-vxflexos.dellemc.com
+    fsType: ext4
+    volumeAttributes:
+      FsType: ext4
+      Name: home-assistant
+      StoragePoolID: "bf7590cf00000000"
+      StoragePoolName: sp1
+    volumeHandle: d2df29a900000004
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: home-assistant
+  namespace: home-assistant
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 256Gi
+  storageClassName: vxflexos
+  volumeMode: Filesystem
+  volumeName: home-assistant
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: home-assistant-mariadb
+spec:
+  capacity:
+    storage: 256Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: vxflexos
+  csi:
+    driver: csi-vxflexos.dellemc.com
+    fsType: ext4
+    volumeAttributes:
+      FsType: ext4
+      Name: home-assistant
+      StoragePoolID: "bf7590cf00000000"
+      StoragePoolName: sp1
+    volumeHandle: d2df29aa00000005
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: home-assistant-mariadb
+  namespace: home-assistant
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 256Gi
+  storageClassName: vxflexos
+  volumeMode: Filesystem
+  volumeName: home-assistant-mariadb

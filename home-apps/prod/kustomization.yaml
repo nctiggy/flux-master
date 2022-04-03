@@ -5,3 +5,4 @@ resources:
 - stash
 - node-red
 - mosquitto
+- home-assistant
