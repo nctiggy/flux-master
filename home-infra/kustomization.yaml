@@ -8,5 +8,3 @@ resources:
 - cert-manager
 - metrics-server
 - sealed-secrets
-- istio
-- istio-gateway
