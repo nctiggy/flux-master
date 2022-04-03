@@ -20,7 +20,6 @@ spec:
     image:
       tag: 2022.3.8
   valuesFrom:
-    - kind: ConfigMap
-      name: home-assistant-config
     - kind: Secret
-      name: home-assistant-secret
+      name: home-assistant-values
+      optional: true
