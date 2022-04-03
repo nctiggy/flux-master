@@ -16,6 +16,9 @@ spec:
   install:
     remediation:
       retries: 3
+  values:
+    image:
+      tag: v2.2.2
   valuesFrom:
     - kind: ConfigMap
       name: node-red-config
