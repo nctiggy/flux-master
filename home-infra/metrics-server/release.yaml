@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: metrics-server
         namespace: flux-system
-      version: "3.7.0"
+      version: "3.8.2"
   interval: 30m
   install:
     remediation:
