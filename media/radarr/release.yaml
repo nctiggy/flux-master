@@ -19,7 +19,7 @@ spec:
       retries: 3
   values:
     image:
-      tag: 4.0.5.5981
+      tag: v4.0.5.5981
     ingress:
       main:
         enabled: true
