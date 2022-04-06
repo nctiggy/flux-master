@@ -6,3 +6,4 @@ resources:
 - node-red
 - mosquitto
 - home-assistant
+- frigate
