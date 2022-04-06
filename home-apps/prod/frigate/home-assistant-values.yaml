@@ -1,0 +1,22 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "home-assistant-values",
+    "namespace": "home-assistant",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "home-assistant-values",
+        "namespace": "home-assistant",
+        "creationTimestamp": null
+      },
+      "data": null
+    },
+    "encryptedData": {
+      "values.yaml": "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"
+    }
+  }
+}

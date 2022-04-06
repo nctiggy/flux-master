@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: frigate
+spec:
+  capacity:
+    storage: 512Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: vxflexos
+  csi:
+    driver: csi-vxflexos.dellemc.com
+    fsType: ext4
+    volumeAttributes:
+      FsType: ext4
+      Name: frigate
+      StoragePoolID: "bf7590cf00000000"
+      StoragePoolName: sp1
+    volumeHandle: d2df50b900000006
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: frigate
+  namespace: frigate
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 512Gi
+  storageClassName: vxflexos
+  volumeMode: Filesystem
+  volumeName: frigate
