@@ -5,4 +5,5 @@ resources:
 - stash
 - node-red
 - mosquitto
+- frigate
 - home-assistant
