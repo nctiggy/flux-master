@@ -5,3 +5,5 @@ resources:
 - ../../base/frigate
 - volume.yaml
 - frigate-values.yaml
+- nfs-volume.yaml
+- nfs-claim.yaml
