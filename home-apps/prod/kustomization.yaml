@@ -6,3 +6,4 @@ resources:
 - mosquitto
 - frigate
 - home-assistant
+- stash
