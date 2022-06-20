@@ -12,12 +12,14 @@ spec:
         kind: HelmRepository
         name: k8s-at-home
         namespace: flux-system
-      version: "12.2.0"
+      version: "12.3.2"
   interval: 30m
   install:
     remediation:
       retries: 3
   values:
+    image:
+      tag: v21.1
     ingress:
       main:
         enabled: true
