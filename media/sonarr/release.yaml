@@ -19,7 +19,7 @@ spec:
       retries: 3
   values:
     image:
-      tag: v3.0.7.1477
+      tag: v3.0.8.1507
     ingress:
       main:
         enabled: true
