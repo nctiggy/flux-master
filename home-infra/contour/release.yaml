@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
-      version: "7.3.3"
+      version: "8.0.1"
   interval: 1h0m0s
   dependsOn:
   - name: metallb
@@ -21,6 +21,12 @@ spec:
     remediation:
       retries: 3
   values:
+    contour:
+      image:
+        tag: 1.21.1-debian-11-r0
+    envoy:
+      image:
+        tag: 1.22.2-debian-11-r1
     commonLabels:
       prometheus: scrape
     metrics:
