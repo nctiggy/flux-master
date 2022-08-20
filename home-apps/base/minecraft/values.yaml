@@ -6,7 +6,6 @@ minecraftServer:
   type: "PAPER"
   paperDownloadUrl: "https://api.papermc.io/v2/projects/paper/versions/1.19.2/builds/131/downloads/paper-1.19.2-131.jar"
   difficulty: easy
-  whitelist: nctiggy
   ops: nctiggy
   maxPlayers: 10
   icon: "https://styles.redditmedia.com/t5_o6oqi/styles/communityIcon_a9ptdumocik11.png"
