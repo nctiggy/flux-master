@@ -13,7 +13,7 @@ minecraftServer:
   forcegameMode: true
   maxBuildHeight: 319
   pvp: true
-  downloadWorldUrl: "https://www.minecraftmaps.com/city-maps/villa-llama/download-map"
+  seed: 107474989
   onlineMode: false
   memory: 4096M
   serviceType: LoadBalancer
