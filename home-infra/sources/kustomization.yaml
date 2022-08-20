@@ -11,3 +11,4 @@ resources:
 - prometheus-community.yaml
 - csi-powerflex.yaml
 - istio.yaml
+- minecraft.yaml
