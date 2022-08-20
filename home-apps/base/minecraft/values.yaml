@@ -1,0 +1,23 @@
+resources:
+  requests:
+    memory: 4096Mi
+minecraftServer:
+  eula: "TRUE"
+  type: "PAPER"
+  paperDownloadUrl: "https://api.papermc.io/v2/projects/paper/versions/1.19.2/builds/131/downloads/paper-1.19.2-131.jar"
+  difficulty: easy
+  whitelist: nctiggy
+  ops: nctiggy
+  maxPlayers: 10
+  icon: "https://styles.redditmedia.com/t5_o6oqi/styles/communityIcon_a9ptdumocik11.png"
+  forcegameMode: true
+  maxBuildHeight: 319
+  pvp: true
+  downloadWorldUrl: "https://www.minecraftmaps.com/city-maps/villa-llama/download-map"
+  onlineMode: false
+  memory: 4096M
+  serviceType: LoadBalancer
+persistence:
+  dataDir:
+    enabled: true
+    existingClaim: minecraft

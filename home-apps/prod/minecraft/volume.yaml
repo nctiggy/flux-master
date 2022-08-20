@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minecraft
+spec:
+  capacity:
+    storage: 80Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: vxflexos
+  csi:
+    driver: csi-vxflexos.dellemc.com
+    fsType: ext4
+    volumeAttributes:
+      FsType: ext4
+      Name: minecraft
+      StoragePoolID: "bf7590cf00000000"
+      StoragePoolName: sp1
+    volumeHandle: d2df785900000062
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: minecraft
+  namespace: minecraft
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 80Gi
+  storageClassName: vxflexos
+  volumeMode: Filesystem
+  volumeName: minecraft
