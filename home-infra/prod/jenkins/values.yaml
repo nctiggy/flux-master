@@ -1,6 +1,7 @@
 controller:
   jenkinsUriPrefix: jenkins.web.craigcloud.io
   ingress:
+    apiVersion: networking.k8s.io/v1
     enabled: true
     paths:
       - path: /
@@ -11,6 +12,7 @@ controller:
       kubernetes.io/ingress.class: contour
       kubernetes.io/tls-acme: "true"
     ingressClassName: contour
+    resourceRootUrl: jenkins.web.craigcloud.io
     hostName: jenkins.web.craigcloud.io
     tls:
     - secretName: jenkins
