@@ -1,0 +1,19 @@
+controller:
+  jenkinsUrl: jenkins.web.craigcloud.io
+  ingress:
+    enabled: true
+    apiVersion: "networking.k8s.io/v1"
+    paths:
+      - path: /
+        pathType: Prefix
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      ingress.kubernetes.io/force-ssl-redirect: "true"
+      kubernetes.io/ingress.class: contour
+      kubernetes.io/tls-acme: "true"
+    ingressClassName: contour
+    hostName: jenkins.web.craigcloud.io
+    tls:
+    - secretName: jenkins
+      hosts:
+      - jenkins.web.craigcloud.io

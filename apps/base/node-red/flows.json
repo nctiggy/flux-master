@@ -1,0 +1,317 @@
+[
+    {
+        "id": "6f47eda9.0b4afc",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3bd874d1.dcf0ec",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mosquitto.mosquitto",
+        "port": "1883",
+        "clientid": "node-red",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ad4883e1.7f3cc8",
+        "type": "mqtt out",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "topic": "/hello",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3bd874d1.dcf0ec",
+        "x": 1410,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1b3f08c2.77f77f",
+        "type": "http in",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "url": "/point",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 420,
+        "wires": [
+            [
+                "d7f3592f.eef2c",
+                "684631a1.d7c06"
+            ]
+        ]
+    },
+    {
+        "id": "d7f3592f.eef2c",
+        "type": "http response",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 520,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "684631a1.d7c06",
+        "type": "function",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "func": "switch(msg.payload.player) {\n    case 1:\n        msg.player = 1;\n        break;\n    case 2:\n        msg.player = 2;\n        break;\n    default:\n        msg.payload = \"unk\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "e290de70.6cb0f"
+            ]
+        ]
+    },
+    {
+        "id": "71cd0d8e.46783c",
+        "type": "http in",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "url": "/display",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 240,
+        "y": 360,
+        "wires": [
+            [
+                "d7f3592f.eef2c",
+                "bc1053f4.cb6418"
+            ]
+        ]
+    },
+    {
+        "id": "bc1053f4.cb6418",
+        "type": "function",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "func": "msg.payload = msg.payload.message\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "ad4883e1.7f3cc8"
+            ]
+        ]
+    },
+    {
+        "id": "20f6ed8e.31b7f2",
+        "type": "file",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "filename": "/data/score.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 580,
+        "y": 500,
+        "wires": [
+            [
+                "d17b59d.b363028"
+            ]
+        ]
+    },
+    {
+        "id": "d49613c.d94a2f",
+        "type": "http in",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "url": "/new",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 500,
+        "wires": [
+            [
+                "80f93d04.71e6a8",
+                "d7f3592f.eef2c"
+            ]
+        ]
+    },
+    {
+        "id": "80f93d04.71e6a8",
+        "type": "template",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\"player1\": \"00\", \"player2\": \"00\"}",
+        "output": "str",
+        "x": 400,
+        "y": 500,
+        "wires": [
+            [
+                "20f6ed8e.31b7f2"
+            ]
+        ]
+    },
+    {
+        "id": "ffd46fc4.43c7a",
+        "type": "function",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "func": "msg.payload = \" \" + msg.payload.player1 + \" - \" + msg.payload.player2\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1380,
+        "y": 540,
+        "wires": [
+            [
+                "ad4883e1.7f3cc8"
+            ]
+        ]
+    },
+    {
+        "id": "d17b59d.b363028",
+        "type": "json",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1310,
+        "y": 480,
+        "wires": [
+            [
+                "ffd46fc4.43c7a"
+            ]
+        ]
+    },
+    {
+        "id": "e290de70.6cb0f",
+        "type": "file in",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "filename": "/data/score.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 580,
+        "y": 420,
+        "wires": [
+            [
+                "18fc531.603092d"
+            ]
+        ]
+    },
+    {
+        "id": "18fc531.603092d",
+        "type": "json",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 750,
+        "y": 420,
+        "wires": [
+            [
+                "b1c473f8.1c8b18"
+            ]
+        ]
+    },
+    {
+        "id": "b1c473f8.1c8b18",
+        "type": "function",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "func": "let cur_score = eval(\"msg.payload.player\" + msg.player);\nlet new_score = parseInt(cur_score) + 1;\nif (new_score < 10) {\n    new_score = \"0\" + new_score.toString();\n} else {\n    new_score = new_score.toString();\n}\neval(\"msg.payload.player\" + msg.player + \" = \\\"\" + new_score + \"\\\"\");\n//eval(\"let msg.payload.player\" + msg.player + \" = \" + new_score);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 420,
+        "wires": [
+            [
+                "f4b6e0ca.6a385"
+            ]
+        ]
+    },
+    {
+        "id": "d410754e.7976f",
+        "type": "file",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "filename": "/data/score.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1220,
+        "y": 420,
+        "wires": [
+            [
+                "d17b59d.b363028"
+            ]
+        ]
+    },
+    {
+        "id": "f4b6e0ca.6a385",
+        "type": "json",
+        "z": "6f47eda9.0b4afc",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 1050,
+        "y": 420,
+        "wires": [
+            [
+                "d410754e.7976f"
+            ]
+        ]
+    }
+]
