@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: jenkins
 resources:
 - ../../base/jenkins
+- jenkins-values.yaml

@@ -17,3 +17,10 @@ spec:
   install:
     remediation:
       retries: 3
+  dependsOn:
+  - name: sealed-secrets-controller
+    namespace: kube-system
+  values:
+  - name: jenkins-values
+    kind: Secret
+    optional: true
