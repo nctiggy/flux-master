@@ -3,13 +3,14 @@ service:
 ingress:
   enables: true
   pathType: Prefix
+  path: /
   hostname: jenkins.web.craigcloud.io
   tls: true
   ingressClassName: contour
+  certManager: true
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     ingress.kubernetes.io/force-ssl-redirect: "true"
-    kubernetes.io/tls-acme: "true"
 persistence:
   size: 64Gi
 jenkinsUser: admin
