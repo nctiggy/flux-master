@@ -1,7 +1,7 @@
 service:
   type: ClusterIP
 ingress:
-  enables: true
+  enabled: true
   pathType: Prefix
   path: /
   hostname: jenkins.web.craigcloud.io
