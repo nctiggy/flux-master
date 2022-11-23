@@ -1,0 +1,21 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "jenkins-values",
+    "namespace": "jenkins",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "jenkins-values",
+        "namespace": "jenkins",
+        "creationTimestamp": null
+      }
+    },
+    "encryptedData": {
+      "values.yaml": "AgBK1GH2bcu5Y1tsUU4IYvY+oHWqszkdpB2s1Vn7DYMcPxnmM6xgrRwWfhFzQ49xSIImvGp/DT5zcQI0iLG7d+UeKjl1xwzOGMk/7Z6lUAI847DablPTuo7GdFt7wJx9dpQQ4P28iiSro26M/6yjvaW53c/EKAlyJRemLsiWvVoEn0xpVyjVpHy/3FqzuJPopWoX/LPoE/TqAGXAtyFJJmAYKTusDLG3COH2w19Km2WX+TlUq6o7IZCPI+Rs6yfIUIP/0Jc01jcIc3nfPsrxsYwpePROJKKNHVHIBQPrLt9hopAsNpGI0CxGkIFuDqzsy1Htp22e1eu862QcUnuiQ4dgpd/Qa2cmrihm0/y9vdTzS/gZQQe3eutSyhBu3kU42xAh4Xv1jYr4X9EQaF5IeAbkJKEDGiB6eWRtDDa0VkgQBu0tNNwJ/9QUxTwuG/WbocHo0NfDJ37wSJZeoOVXbx/7hEeEQEM12yMFK6Nkg58QJQi2+VtxaYux1CANKoKC/G6oh05cp//bGXNpzk7UPvtZhdeXAxGCsVtq1x370cuvGdL/wn0DmmUEMucdjJY7d9AsRyC2mx7/G0ZUdkSmbKof5jb2HhIc5Gu0Xm4aSmwS/9MENUGo/rNIWN1jgUqh9kFOK41C/nLQGmX1biYYh2M5k1cXFKYPjKOVn8R3cbOgmsVHOd+ijMdY6BHcYN09LJB6LShkKZAszDOG4PShTTWmA9vb1uZqaa4n5s4medA+XPpQHNLHpG9BZiEiHD2X5YzZe2INW7H5HwrBGDy+F9r7UfPQHeR23DXusJE7s+lB/Kt0AsFyKY6TzIKpDn7Dmg4C/FS8GpEOYhGOU+gh78cPhTColPqB2BYTWkR71LQSibb1PwB2mu+QeyVugwBSBeRDgtVQMYn/QeeeAmnwXvMgeMKk0h5ECzYKHJmHckDGsfza6jl2UUu14bwBEUI5OHbr3ymElla/zYuHjmG0OGtpqlPOP+TjzMDEVtH05i9n7eUfLufdgC61G2ARGZgwQ+yga+KqP7YcX7QSBsmz9w4OJWaVPvZhZvN5II4BffnYytztIchWw3pnLY+HeggcNfVy7oO145Mz83ypnr5IRawaEd6lwhwGHIrxktHcFTKjt8EZzaDvS3nPeIIyxP1LrR2oUxet/ey2ZDFelxX79S/HHCrzk+qyqraI3o5SusEVCUibclgERJL6wHWXxYIg6fL7BXrE3N+dIy4BIOwIXiQR37JTrNVo8kruDSj9Ohs="
+    }
+  }
+}
