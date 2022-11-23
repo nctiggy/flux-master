@@ -4,3 +4,5 @@ namespace: jenkins
 resources:
 - namespace.yaml
 - release.yaml
+configurations:
+  - kustomizeconfig.yaml

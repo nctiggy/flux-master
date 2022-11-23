@@ -20,7 +20,6 @@ spec:
   dependsOn:
   - name: sealed-secrets-controller
     namespace: kube-system
-  values:
+  valuesFrom:
   - name: jenkins-values
     kind: Secret
-    optional: true
