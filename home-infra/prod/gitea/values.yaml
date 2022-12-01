@@ -3,7 +3,7 @@ ingress:
   className: contour
   annotations:
     kubernetes.io/tls-acme: "true"
-    ingress.kubernetes.io/force-ssl-redirect: true
+    ingress.kubernetes.io/force-ssl-redirect: "true"
   hosts:
     - host: git.web.craigcloud.io
       paths:
