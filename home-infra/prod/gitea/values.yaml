@@ -4,6 +4,7 @@ ingress:
   annotations:
     kubernetes.io/tls-acme: "true"
     ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
   hosts:
     - host: git.web.craigcloud.io
       paths:
