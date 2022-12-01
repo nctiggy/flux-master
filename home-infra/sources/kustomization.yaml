@@ -13,3 +13,4 @@ resources:
 - istio.yaml
 - minecraft.yaml
 - jenkins.yaml
+- harbor.yaml

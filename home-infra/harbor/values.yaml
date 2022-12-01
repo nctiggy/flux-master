@@ -1,0 +1,26 @@
+expose:
+  ingress:
+    hosts:
+      core: harbor.web.craigcloud.io
+      notary: notary.web.craigcloud.io
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      ingress.kubernetes.io/force-ssl-redirect: "true"
+      kubernetes.io/ingress.class: contour
+      kubernetes.io/tls-acme: "true"
+externalURL: https://harbor.web.craigcloud.io
+harborAdminPassword: Password#1
+persistence:
+  persistentVolumeClaim:
+    registry:
+      size: 256Gi
+    chartmuseum:
+      size: 128Gi
+    jobservice:
+      size: 64Gi
+    database:
+      size: 64Gi
+    redis:
+      size: 16Gi
+    trivy:
+      size: 32Gi
