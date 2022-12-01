@@ -1,0 +1,22 @@
+ingress:
+  enabled: true
+  className: contour
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    ingress.kubernetes.io/force-ssl-redirect: true
+  hosts:
+    - host: git.web.craigcloud.io
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+  - secretName: gitea-tls
+    hosts:
+    - git.web.craigcloud.io
+persistence:
+  size: 64Gi
+gitea:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
