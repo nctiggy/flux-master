@@ -4,3 +4,4 @@ namespace: jenkins
 resources:
 - ../../base/jenkins-bitnami
 - jenkins-values.yaml
+- harbor-secret.yaml
