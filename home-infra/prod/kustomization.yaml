@@ -4,3 +4,4 @@ resources:
 - metallb
 - jenkins-bitnami
 - gitea
+- devops-tools
