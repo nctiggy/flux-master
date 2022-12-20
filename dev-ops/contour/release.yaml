@@ -14,9 +14,6 @@ spec:
         namespace: flux-system
       version: "10.1.3"
   interval: 1h0m0s
-  dependsOn:
-  - name: metallb
-    namespace: metallb-system
   install:
     remediation:
       retries: 3
