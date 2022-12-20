@@ -12,11 +12,12 @@ spec:
         kind: HelmRepository
         name: bitnami-labs
         namespace: flux-system
-      version: 2.1.5
+      version: 2.7.2
   interval: 30m
   install:
     remediation:
       retries: 3
   values:
-    dashboards:
-      create: true
+    metrics:
+      dashboards:
+        create: true
