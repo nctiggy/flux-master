@@ -4,5 +4,3 @@ resources:
 - sources
 - vxflexos-config.yaml
 - metrics-server
-- contour
-- cert-manager
