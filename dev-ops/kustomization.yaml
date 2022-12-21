@@ -3,6 +3,4 @@ kind: Kustomization
 resources:
 - sources
 - vxflexos-config.yaml
-- contour
-- cert-manager
 - metrics-server
