@@ -17,7 +17,3 @@ spec:
   install:
     remediation:
       retries: 3
-  values:
-    envoy:
-      service:
-        externalTrafficPolicy: Cluster
