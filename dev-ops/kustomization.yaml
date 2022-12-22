@@ -6,5 +6,4 @@ resources:
 - metrics-server
 - contour
 - cert-manager
-- gitea
 - bitwarden

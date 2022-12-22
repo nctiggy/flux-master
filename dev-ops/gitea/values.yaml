@@ -16,3 +16,6 @@ ingress:
     - git.web.craigcloud.io
 persistence:
   existingClaim: gitea
+postgresql:
+  persistence:
+    existingClaim: gitea-db

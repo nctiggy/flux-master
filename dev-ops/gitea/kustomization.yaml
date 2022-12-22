@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: gitea
 resources:
 - namespace.yaml
+- volume.yaml
 - gitea-values.yaml
 - release.yaml
