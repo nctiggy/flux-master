@@ -16,8 +16,3 @@ ingress:
     - git.web.craigcloud.io
 persistence:
   size: 64Gi
-gitea:
-  metrics:
-    enabled: true
-    serviceMonitor:
-      enabled: true
