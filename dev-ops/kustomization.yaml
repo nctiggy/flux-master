@@ -7,3 +7,4 @@ resources:
 - contour
 - cert-manager
 - bitwarden
+- gitea
