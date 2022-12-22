@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: nfs-share-stash
-  namespace: stash
+  namespace: media
 spec:
   accessModes:
   - ReadWriteMany
