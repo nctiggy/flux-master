@@ -13,5 +13,5 @@ metadata:
   name: l2advertisement
   namespace: metallb-system
 spec:
-    ipaddresspools:
-      - main-pool
+  ipAddressPools:
+  - main-pool
