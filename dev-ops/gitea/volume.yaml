@@ -5,7 +5,7 @@ metadata:
   name: gitea
 spec:
   capacity:
-    storage: 64Gi
+    storage: 72Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
@@ -19,19 +19,19 @@ spec:
       Name: gitea
       StoragePoolID: "bf7590cf00000000"
       StoragePoolName: sp1
-    volumeHandle: d2deb48300000016
+    volumeHandle: d2dfecf90000001c
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sonarr
-  namespace: media
+  name: gitea
+  namespace: gitea
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 64Gi
+      storage: 72Gi
   storageClassName: vxflexos
   volumeMode: Filesystem
-  volumeName: sonarr
+  volumeName: gitea

@@ -15,4 +15,4 @@ ingress:
     hosts:
     - git.web.craigcloud.io
 persistence:
-  size: 72Gi
+  existingClaim: gitea
