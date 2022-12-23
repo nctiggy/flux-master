@@ -7,3 +7,4 @@ resources:
 - metallb.yaml
 - metrics-server.yaml
 - gitea.yaml
+- harbor
