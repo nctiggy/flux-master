@@ -14,6 +14,10 @@ ingress:
   - secretName: gitea-tls
     hosts:
     - git.web.craigcloud.io
+gitea:
+  config:
+    webhook:
+      ALLOWED_HOST_LIST: *
 persistence:
   existingClaim: gitea
 postgresql:
