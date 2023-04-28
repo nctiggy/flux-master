@@ -20,7 +20,7 @@ spec:
   values:
     hostNetwork: true
     image:
-      name: plexinc/pms-docker
+      repository: plexinc/pms-docker
       tag: 1.32.0.6973-a787c5a8e
     env:
       TZ: "Americas/Los_Angeles"
