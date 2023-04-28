@@ -20,8 +20,7 @@ spec:
   values:
     hostNetwork: true
     image:
-      repository: plexinc/pms-docker
-      tag: 1.32.0.6973-a787c5a8e
+      tag: v1.29.0.6244-819d3678c
     env:
       TZ: "Americas/Los_Angeles"
       ADVERTISE_IP: "http://192.168.0.52:32400"
