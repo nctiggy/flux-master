@@ -42,4 +42,3 @@ spec:
         dataDir:
           enabled: true
           Size: 64Gi
-          existingClaim: minecraft
