@@ -20,7 +20,7 @@ spec:
   values:
     resources:
       requests:
-        memory: 4096Gi
+        memory: 4096Mi
     minecraftServer:
       eula: "TRUE"
       type: "PAPER"
