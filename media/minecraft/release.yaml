@@ -24,6 +24,7 @@ spec:
     minecraftServer:
       eula: "TRUE"
       difficulty: normal
+      whitelist: nctiggy
       ops: nctiggy
       viewDistance: 15
       levelSeed: 7644964991330705060
