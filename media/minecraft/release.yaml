@@ -38,7 +38,7 @@ spec:
       enforceSecureProfile: false
       serviceType: LoadBalancer
       loadBalancerIP: 192.168.0.54
-      persistence:
-        dataDir:
-          enabled: true
-          Size: 64Gi
+    persistence:
+      dataDir:
+        enabled: true
+        Size: 64Gi
