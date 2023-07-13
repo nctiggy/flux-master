@@ -11,11 +11,7 @@ concourse:
 web:
   ingress:
     enabled: true
-    hosts:
-    - host: concourse.web.craigcloud.io
-      paths:
-        - path: /
-          pathType: Prefix
+    hosts: concourse.web.craigcloud.io
     ingressClassName: contour
     tls:
     - secretName: concourse-tls
