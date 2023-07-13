@@ -9,10 +9,6 @@ concourse:
     externalUrl: https://concourse.web.craigcloud.io
     kubernetes:
       namespacePrefix: concourse-
-    auth:
-      mainTeam:
-        github:
-          user: "nctiggy@gmail.com"
 secrets:
   githubClientId: 7b4b4768808eab5c6a7b
   githubClientSecret: f17f1fcbf7be09c677279f813b2ef9c67b930d3d
