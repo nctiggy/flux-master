@@ -1,0 +1,26 @@
+concourse:
+  web:
+    clusterName: home
+    enableBuildRerunWhenWorkerDisappears: true
+    enablep2pVolumeStreaming: true
+    externalUrl: https://concourse.web.craigcloud.io
+    auth:
+      mainTeam:
+        github:
+          user: "nctiggy@gmail.com"
+web:
+  ingress:
+    enabled: true
+    hosts:
+    - host: concourse.web.craigcloud.io
+      paths:
+        - path: /
+          pathType: Prefix
+    ingressClassName: contour
+    tls:
+    - secretName: concourse-tls
+      hosts:
+      - concourse.web.craigcloud.io
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      ingress.kubernetes.io/force-ssl-redirect: "true"

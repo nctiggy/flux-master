@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: concourse
+  namespace: concourse
+spec:
+  releaseName: concourse
+  chart:
+    spec:
+      chart: concourse
+      sourceRef:
+        kind: HelmRepository
+        name: concourse
+        namespace: flux-system
+      version: "17.1.0"
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  valuesFrom:
+  - name: concourse-values
+    kind: ConfigMap

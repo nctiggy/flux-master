@@ -10,3 +10,4 @@ resources:
 - gitea
 - jenkins-bitnami
 - harbor
+- concourse
