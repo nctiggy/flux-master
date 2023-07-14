@@ -1,8 +1,10 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: HelmRepository
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
 metadata:
   name: bitnami
   namespace: flux-system
 spec:
   interval: 1m
   url: oci://registry-1.docker.io/bitnamicharts/jenkins
+  ref:
+    tag: latest
