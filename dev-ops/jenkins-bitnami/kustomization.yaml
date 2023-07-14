@@ -5,3 +5,4 @@ resources:
 - volume.yaml
 - jenkins-values.yaml
 - release.yaml
+- service-account.yaml
