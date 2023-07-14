@@ -9,7 +9,7 @@ spec:
     spec:
       chart: jenkins
       sourceRef:
-        kind: OCIRepository
+        kind: HelmRepository
         name: bitnami
         namespace: flux-system
       version: "12.2.5"
