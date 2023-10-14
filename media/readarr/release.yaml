@@ -41,7 +41,6 @@ spec:
           paths:
           - path: /
             pathType: Prefix
-            port: http
     service:
       main:
         ports:
@@ -50,7 +49,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: sonarr
+        existingClaim: readarr
       media:
         enabled: true
         existingClaim: nfs-share
