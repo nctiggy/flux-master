@@ -19,7 +19,8 @@ spec:
       retries: 3
   values:
     image:
-      tag: v4.2.4.6635
+      repository: ghcr.io/onedr0p/radarr
+      tag: 4.7.5
     ingress:
       main:
         enabled: true
