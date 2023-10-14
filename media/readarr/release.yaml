@@ -1,0 +1,56 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: readarr
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: app-template
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+      version: 2.0.3
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  values:
+    controllers:
+      main:
+        strategy: Recreate
+        containers:
+          main:
+            image:
+              repository: ghcr.io/onedr0p/readarr-develop
+              tag: 0.3.6.2232
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          kubernetes.io/ingress.class: contour
+          kubernetes.io/tls-acme: "true"
+        tls:
+        - secretName: sonarr
+          hosts:
+          - books.web.bluehairfreak.com
+        hosts:
+        - host: books.web.bluehairfreak.com
+          paths:
+          - path: /
+            pathType: Prefix
+            port: http
+    service:
+      main:
+        ports:
+          http:
+            port: 8787
+    persistence:
+      config:
+        enabled: true
+        existingClaim: sonarr
+      media:
+        enabled: true
+        existingClaim: nfs-share

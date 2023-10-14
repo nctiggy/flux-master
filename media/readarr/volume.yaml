@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: readarr
+spec:
+  capacity:
+    storage: 64Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: vxflexos
+  csi:
+    driver: csi-vxflexos.dellemc.com
+    fsType: ext4
+    volumeAttributes:
+      FsType: ext4
+      Name: readarr
+      StoragePoolID: "bf7590cf00000000"
+      StoragePoolName: sp1
+    volumeHandle: d2e089390000002f
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: readarr
+  namespace: media
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 64Gi
+  storageClassName: vxflexos
+  volumeMode: Filesystem
+  volumeName: readarr
