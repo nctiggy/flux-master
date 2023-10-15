@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: calibre
+  name: calibre-web
 spec:
   capacity:
     storage: 128Gi
@@ -16,15 +16,15 @@ spec:
     fsType: ext4
     volumeAttributes:
       FsType: ext4
-      Name: calibre
+      Name: calibre-web
       StoragePoolID: "bf7590cf00000000"
       StoragePoolName: sp1
-    volumeHandle: d2e0893a00000030
+    volumeHandle: d2e0893b0000000c
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: calibre
+  name: calibre-web
   namespace: media
 spec:
   accessModes:
@@ -34,4 +34,4 @@ spec:
       storage: 128Gi
   storageClassName: vxflexos
   volumeMode: Filesystem
-  volumeName: calibre
+  volumeName: calibre-web
