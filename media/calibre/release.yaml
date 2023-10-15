@@ -19,9 +19,9 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsUser: 911
-        runAsGroup: 911
-        fsGroup: 911
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
     controllers:
       main:
         strategy: Recreate
