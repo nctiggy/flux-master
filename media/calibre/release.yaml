@@ -17,6 +17,11 @@ spec:
     remediation:
       retries: 3
   values:
+    defaultPodOptions:
+      securityContext:
+        runAsUser: 911
+        runAsGroup: 911
+        fsGroup: 911
     controllers:
       main:
         strategy: Recreate
