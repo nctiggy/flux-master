@@ -5,7 +5,7 @@ metadata:
   name: calibre
 spec:
   capacity:
-    storage: 64Gi
+    storage: 128Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
