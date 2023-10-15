@@ -60,6 +60,12 @@ spec:
         controller: main
         ports:
           http:
+            port: 8080
+      api:
+        enabled: true
+        controller: main
+        ports:
+          api:
             port: 8081
     persistence:
       config:
