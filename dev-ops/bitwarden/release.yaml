@@ -22,7 +22,7 @@ spec:
     namespace: kube-system
   values:
     image:
-      tag: 1.29.0
+      tag: 1.30.3
     ingress:
       main:
         enabled: true
