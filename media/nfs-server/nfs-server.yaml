@@ -87,7 +87,7 @@ metadata:
   name: nfs-server-frontend
   namespace: media
   annotations:
-    metallb.universe.tf/address-pool: frontend
+    metallb.universe.tf/address-pool: main-pool
 spec:
   selector:
     app: nfs-server
