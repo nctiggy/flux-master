@@ -16,15 +16,15 @@ spec:
     fsType: ext4
     volumeAttributes:
       FsType: ext4
-      Name: minecraft
+      Name: minecraft-data
       StoragePoolID: "bf7590cf00000000"
       StoragePoolName: sp1
-    volumeHandle: d2e03b1900000026
+    volumeHandle: d2e03b1e0000002b
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: minecraft
+  name: minecraft-data
   namespace: media
 spec:
   accessModes:
@@ -34,4 +34,4 @@ spec:
       storage: 16Gi
   storageClassName: vxflexos
   volumeMode: Filesystem
-  volumeName: minecraft
+  volumeName: minecraft-data

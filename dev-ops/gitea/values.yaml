@@ -22,4 +22,4 @@ persistence:
   existingClaim: gitea
 postgresql:
   persistence:
-    existingClaim: gitea-db
+    existingClaim: gitea-postgres

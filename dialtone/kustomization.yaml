@@ -4,5 +4,4 @@ resources:
 - sources
 - cert-manager.crds.yaml
 - sealed-secrets
-- external-snapshotter
 - metallb
