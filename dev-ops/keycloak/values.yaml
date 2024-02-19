@@ -1,0 +1,18 @@
+service:
+  type: ClusterIP
+ingress:
+  enabled: true
+  pathType: Prefix
+  path: /
+  hostname: jenkins.web.craigcloud.io
+  tls: true
+  ingressClassName: contour
+  certManager: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+persistence:
+  existingClaim: jenkins
+jenkinsUser: admin
+jenkinsPassword: Alisha2
+jenkinsHost: jenkins.web.craigcloud.io

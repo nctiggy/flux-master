@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jenkins-bitnami
+  namespace: jenkins
+spec:
+  releaseName: jenkins
+  chart:
+    spec:
+      chart: jenkins
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+      version: "12.2.6"
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  dependsOn:
+  - name: sealed-secrets-controller
+    namespace: kube-system
+  valuesFrom:
+  - name: jenkins-values
+    kind: Secret
