@@ -1,0 +1,48 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kavita
+  namespace: media
+spec:
+  releaseName: kavita
+  chart:
+    spec:
+      chart: kavita
+      sourceRef:
+        kind: HelmRepository
+        name: nctiggy
+        namespace: flux-system
+      version: "0.0.1"
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  values:
+    image:
+      repository: jvmilazz0/kavita
+      tag: latest
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          ingress.kubernetes.io/force-ssl-redirect: "true"
+          kubernetes.io/ingress.class: contour
+          kubernetes.io/tls-acme: "true"
+        tls:
+        - secretName: kavita
+          hosts:
+          - comicsdb.web.bluehairfreak.com
+        hosts:
+        - host: comicsdb.web.bluehairfreak.com
+          paths:
+          - path: /
+            pathType: Prefix
+    persistence:
+      config:
+        enabled: true
+        mountPath: /kavita/config
+        existingClaim: kavita
+      media:
+        enabled: true
+        existingClaim: nfs-share
