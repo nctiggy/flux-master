@@ -30,4 +30,4 @@ spec:
         name: telly-config
         enabled: true
         type: secret
-        mountPath: /etc/telly/telly.config.toml
+        mountPath: /etc/telly
