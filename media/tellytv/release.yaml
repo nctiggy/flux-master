@@ -1,0 +1,51 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: telly
+  namespace: media
+spec:
+  releaseName: telly
+  chart:
+    spec:
+      chart: telly
+      sourceRef:
+        kind: HelmRepository
+        name: nctiggy
+        namespace: flux-system
+      version: "0.0.1"
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  values:
+    image:
+      repository: tellytv/telly:dev-ffmpeg
+      tag: latest
+    env:
+      TELLY_IPTV_PLAYLIST:
+        valueFrom:
+          secretKeyRef:
+            name: telly-playlist
+            key: playlist
+      TELLY_FILTER_REGEX: '.*UK.*'
+      TELLY_WEB_LISTEN_ADDRESS: https://iptv.web.bluehairfreak.com:443
+      TELLY_IPTV_STREAMS: 1
+      TELLY_DISCOVERY_FRIENDLYNAME: Tuner1
+      TELLY_DISCOVERY_DEVICEID: 12345678
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          ingress.kubernetes.io/force-ssl-redirect: "true"
+          kubernetes.io/ingress.class: contour
+          kubernetes.io/tls-acme: "true"
+        tls:
+        - secretName: telly
+          hosts:
+          - iptv.web.bluehairfreak.com
+        hosts:
+        - host: iptv.web.bluehairfreak.com
+          paths:
+          - path: /
+            pathType: Prefix
