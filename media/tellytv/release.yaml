@@ -27,6 +27,7 @@ spec:
         loadBalancerIP: "192.168.0.51"
     persistence:
       telly-config:
+        name: telly-config
         enabled: true
         type: secret
         mountPath: /etc/telly/telly.config.toml
