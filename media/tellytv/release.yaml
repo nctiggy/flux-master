@@ -28,24 +28,11 @@ spec:
             name: telly-playlist
             key: playlist
       TELLY_FILTER_REGEX: '.*UK.*'
-      TELLY_WEB_LISTEN_ADDRESS: https://iptv.web.bluehairfreak.com:443
+      TELLY_WEB_LISTEN_ADDRESS: 192.168.0.51:6077
       TELLY_IPTV_STREAMS: 1
       TELLY_DISCOVERY_FRIENDLYNAME: Tuner1
       TELLY_DISCOVERY_DEVICEID: '12345678'
-    ingress:
+    service:
       main:
-        enabled: true
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-prod"
-          ingress.kubernetes.io/force-ssl-redirect: "true"
-          kubernetes.io/ingress.class: contour
-          kubernetes.io/tls-acme: "true"
-        tls:
-        - secretName: telly
-          hosts:
-          - iptv.web.bluehairfreak.com
-        hosts:
-        - host: iptv.web.bluehairfreak.com
-          paths:
-          - path: /
-            pathType: Prefix
+        type: LoadBalancer
+        loadBalancerIP: "192.168.0.51"
