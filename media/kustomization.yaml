@@ -8,6 +8,6 @@ resources:
 - nzbget
 - radarr
 - sonarr
-- readarr
 - kapowarr
 - kavita
+- tellytv
