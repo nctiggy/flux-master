@@ -21,18 +21,12 @@ spec:
     image:
       repository: tellytv/telly
       tag: dev-ffmpeg
-    env:
-      TELLY_IPTV_PLAYLIST:
-        valueFrom:
-          secretKeyRef:
-            name: telly-playlist
-            key: playlist
-      TELLY_FILTER_REGEX: '.*UK.*'
-      TELLY_WEB_LISTEN_ADDRESS: 192.168.0.51:6077
-      TELLY_IPTV_STREAMS: 1
-      TELLY_DISCOVERY_FRIENDLYNAME: Tuner1
-      TELLY_DISCOVERY_DEVICEID: '12345678'
     service:
       main:
         type: LoadBalancer
         loadBalancerIP: "192.168.0.51"
+    persistence:
+      telly-config:
+        enabled: true
+        type: secret
+        mountPath: /etc/telly/telly.config.toml
