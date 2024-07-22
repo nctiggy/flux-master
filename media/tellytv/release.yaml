@@ -19,8 +19,8 @@ spec:
       retries: 3
   values:
     image:
-      repository: tellytv/telly:dev-ffmpeg
-      tag: latest
+      repository: tellytv/telly
+      tag: dev-ffmpeg
     env:
       TELLY_IPTV_PLAYLIST:
         valueFrom:
@@ -31,7 +31,7 @@ spec:
       TELLY_WEB_LISTEN_ADDRESS: https://iptv.web.bluehairfreak.com:443
       TELLY_IPTV_STREAMS: 1
       TELLY_DISCOVERY_FRIENDLYNAME: Tuner1
-      TELLY_DISCOVERY_DEVICEID: 12345678
+      TELLY_DISCOVERY_DEVICEID: '12345678'
     ingress:
       main:
         enabled: true
