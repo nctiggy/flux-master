@@ -1,9 +1,0 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
-metadata:
-  name: spark
-  namespace: flux-system
-spec:
-  interval: 5m0s
-  type: "oci"
-  url: oci://registry-1.docker.io/bitnamicharts/spark

@@ -10,7 +10,7 @@ spec:
       chart: spark
       sourceRef:
         kind: HelmRepository
-        name: spark
+        name: bitnami
         namespace: flux-system
       version: "9.2.10"
   interval: 30m
