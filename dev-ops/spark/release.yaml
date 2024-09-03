@@ -28,5 +28,12 @@ spec:
         kubernetes.io/ingress.class: contour
         kubernetes.io/tls-acme: "true"
       tls: true
+    master:
+      configOptions:
+        -Dspark.ui.reverseProxy=true
+        -Dspark.ui.reverseProxyUrl=https://spark.web.craigcloud.io
     worker:
       replicaCount: 3
+      configOptions:
+        -Dspark.ui.reverseProxy=true
+        -Dspark.ui.reverseProxyUrl=https://spark.web.craigcloud.io
