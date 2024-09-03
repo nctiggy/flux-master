@@ -1,0 +1,32 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: spark
+  namespace: spark
+spec:
+  releaseName: spark
+  chart:
+    spec:
+      chart: spark
+      sourceRef:
+        kind: OCIRepository
+        name: spark
+        namespace: flux-system
+      version: "9.2.10"
+  interval: 30m
+  install:
+    remediation:
+      retries: 3
+  values:
+    ingress:
+      enabled: true
+      hostname: spark.web.craigcloud.io
+      pathType: Prefix
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        ingress.kubernetes.io/force-ssl-redirect: "true"
+        kubernetes.io/ingress.class: contour
+        kubernetes.io/tls-acme: "true"
+      tls: true
+    worker:
+      replicaCount: 3

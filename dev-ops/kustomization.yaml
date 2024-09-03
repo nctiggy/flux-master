@@ -7,5 +7,5 @@ resources:
 - contour
 - cert-manager
 - bitwarden
-- gitea
 - jenkins-bitnami
+- spark
