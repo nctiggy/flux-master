@@ -9,7 +9,7 @@ spec:
     spec:
       chart: spark
       sourceRef:
-        kind: OCIRepository
+        kind: HelmRepository
         name: spark
         namespace: flux-system
       version: "9.2.10"
