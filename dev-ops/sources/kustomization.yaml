@@ -9,3 +9,4 @@ resources:
 - gitea.yaml
 - harbor.yaml
 - concourse.yaml
+- spark.yaml
