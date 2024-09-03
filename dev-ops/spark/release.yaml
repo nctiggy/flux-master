@@ -37,3 +37,4 @@ spec:
       configOptions:
         -Dspark.ui.reverseProxy=true
         -Dspark.ui.reverseProxyUrl=https://spark.web.craigcloud.io
+      resourcesPreset: "large"
