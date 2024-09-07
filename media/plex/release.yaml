@@ -28,7 +28,7 @@ spec:
       ALLOWED_NETWORKS:
       - 127.0.0.1
       - 192.168.0.0/24
-      PLEX_CLAIM: "claim-BS4vvTL41zFh7e6SS9cs"
+      PLEX_CLAIM: "claim-rsVtFHF4y1ybSRTKD3A4"
     service:
       main:
         type: LoadBalancer
