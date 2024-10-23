@@ -9,3 +9,4 @@ resources:
 - bitwarden
 - jenkins-bitnami
 - spark
+- harbor
