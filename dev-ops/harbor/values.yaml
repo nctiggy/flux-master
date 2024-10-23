@@ -9,7 +9,7 @@ expose:
       kubernetes.io/ingress.class: contour
       kubernetes.io/tls-acme: "true"
 externalURL: https://harbor.web.craigcloud.io
-adminPassword: Password#1
+harborAdminPassword: Password#1
 persistence:
   persistentVolumeClaim:
     registry:
