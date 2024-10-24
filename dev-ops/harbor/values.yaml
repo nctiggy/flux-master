@@ -13,14 +13,12 @@ harborAdminPassword: Password#1
 persistence:
   persistentVolumeClaim:
     registry:
-      size: 256Gi
-    chartmuseum:
-      size: 128Gi
+      existingClaim: harbor-registry
     jobservice:
-      size: 64Gi
+      existingClaim: harbor-job
     database:
-      size: 64Gi
+      existingClaim: harbor-db
     redis:
-      size: 16Gi
+      existingClaim: harbor-redis
     trivy:
-      size: 32Gi
+      existingClaim: harbor-trivy
