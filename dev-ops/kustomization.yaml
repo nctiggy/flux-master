@@ -8,4 +8,4 @@ resources:
 - cert-manager
 - bitwarden
 - jenkins-bitnami
-- harbor.yaml
+- harbor
