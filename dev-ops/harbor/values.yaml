@@ -13,6 +13,8 @@ expose:
       kubernetes.io/tls-acme: "true"
 externalURL: https://harbor.web.craigcloud.io
 harborAdminPassword: Password#1
+updateStrategy:
+  type: Recreate
 persistence:
   persistentVolumeClaim:
     registry:
