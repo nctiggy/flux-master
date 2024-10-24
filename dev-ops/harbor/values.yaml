@@ -4,6 +4,7 @@ expose:
     secret:
       secretName: harbor-ingress
   ingress:
+    className: contour
     hosts:
       core: harbor.web.craigcloud.io
       notary: notary.web.craigcloud.io
