@@ -7,7 +7,6 @@ expose:
     className: contour
     hosts:
       core: harbor.web.craigcloud.io
-      notary: notary.web.craigcloud.io
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       ingress.kubernetes.io/force-ssl-redirect: "true"
