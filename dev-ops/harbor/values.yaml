@@ -1,4 +1,6 @@
 expose:
+  tls:
+    certSource: secret
   ingress:
     hosts:
       core: harbor.web.craigcloud.io
