@@ -5,13 +5,13 @@ expose:
       secretName: harbor-ingress
   ingress:
     hosts:
-      core: harbor.web.craigcloud.io
+      core: container.web.craigcloud.io
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       ingress.kubernetes.io/force-ssl-redirect: "true"
       kubernetes.io/tls-acme: "true"
     className: contour
-externalURL: https://harbor.web.craigcloud.io
+externalURL: https://container.web.craigcloud.io
 harborAdminPassword: Password#1
 updateStrategy:
   type: Recreate
