@@ -15,7 +15,8 @@ persistence:
     registry:
       existingClaim: harbor-registry
     jobservice:
-      existingClaim: harbor-job
+      jobLog:
+        existingClaim: harbor-job
     database:
       existingClaim: harbor-db
     redis:
