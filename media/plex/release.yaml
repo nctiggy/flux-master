@@ -21,7 +21,7 @@ spec:
     hostNetwork: true
     image:
       repository: ghcr.io/onedr0p/plex
-      tag: 1.32.6.7557-1cf77d501
+      tag: 1.41.1.9057-af5eaea7a@sha256:5926b77196bb7c9f75b52f431d0483abea0fef1f576b7201592b385449201456
     env:
       TZ: "Americas/Los_Angeles"
       ADVERTISE_IP: "http://192.168.0.52:32400"
