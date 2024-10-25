@@ -18,7 +18,7 @@ spec:
     remediation:
       retries: 3
   values:
-    hostNetwork: true
+    #hostNetwork: true
     image:
       repository: ghcr.io/onedr0p/plex
       tag: 1.41.1.9057-af5eaea7a@sha256:5926b77196bb7c9f75b52f431d0483abea0fef1f576b7201592b385449201456
@@ -29,6 +29,8 @@ spec:
       - 127.0.0.1
       - 192.168.0.0/24
       PLEX_CLAIM: "claim-RG9YmmkFRy_bknwSXJgR"
+      PLEX_ADVERTISE_URL: https://plex.web.craigcloud.io:443,http://192.168.0.52:32400
+      PLEX_NO_AUTH_NETWORKS: 192.168.0.0/24
     service:
       main:
         type: LoadBalancer
