@@ -4,7 +4,6 @@ resources:
 - namespace.yaml
 - sources
 - nfs-server
-- plex
 - nzbget
 - radarr
 - sonarr

@@ -60,8 +60,7 @@ spec:
       config:
         enabled: true
         type: pvc
-        size: 16Gi
-          #existingClaim: "plex"
+        existingClaim: "plex"
     affinity:
       podAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
