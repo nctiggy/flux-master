@@ -19,7 +19,7 @@ spec:
       Name: plex
       StoragePoolID: "bf7590cf00000000"
       StoragePoolName: sp1
-    volumeHandle: d2deb47f0000000b
+    volumeHandle: d2e0fe740000000b
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
